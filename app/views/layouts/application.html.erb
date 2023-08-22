@@ -11,9 +11,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="body">
+    <% unless notice == nil && alert == nil%>
+      <div class="bg-light w-100 text-center">
+        <p class="notice text-info"><%= notice %></p>
+        <p class="alert text-danger"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
