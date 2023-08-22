@@ -1,0 +1,23 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'db/**/*'
+    - 'config/**'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'vendor/**/*'
+
+Airbnb/OptArgParameters:
+  Enabled: false
+
+Layout/DotPosition:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
