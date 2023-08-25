@@ -1,49 +1,61 @@
-<header class="d-flex justify-content-between px-3 pt-3 bg-sub">
+<header class="d-flex justify-content-between px-3 pt-3 bg-ink">
   <div class="h3">
     <%= link_to root_path, class: "text-light text-decoration-none" do %>
       Papeterie Station
     <% end %>
   </div>
-  <div>
-    <ul class="d-flex gap-1">
-      <li>
-        <%= link_to"ログイン", new_user_session_path, class: "btn btn-light" %>
-      </li>
-      <li>
-        <%= link_to"新規登録", new_user_registration_path, class: "btn btn-light" %>
-      </li>
-      <li>
-        <%= link_to"ゲストログイン", "#",class: "btn btn-light" %>
-      </li>
-    </ul>
-  </div>
+  <% if user_signed_in? %>
+    <div>
+      <p>ようこそ、<%= currentuser.name %>さん！</p>
+    </div>
+  <% else %>
+    <div>
+      <ul class="d-flex gap-1">
+        <li>
+          <%= link_to"ログイン", new_user_session_path, class: "btn btn-light" %>
+        </li>
+        <li>
+          <%= link_to"新規登録", new_user_registration_path, class: "btn btn-light" %>
+        </li>
+        <li>
+          <%= link_to"ゲストログイン", "#",class: "btn btn-light" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
 </header>
 <div class="container">
-  <div class="mx-auto">
-    <h1 class="h1 text-center">Papeterie Station</h1>
-    <h2 class="text-center">Papeterie Stationとは？</h2>
-    <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
-    <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
-  </div>
-  <div class="mx-auto">
-    <p class="text-secondary">\ユーザー登録してお気に入りの文房具を登録しよう/</p>
-    <div>
-      <div class="d-flex gap-1">
-        <div>
-          <%= link_to"ログイン", new_user_session_path, class: "btn btn-light" %>
-        </div>
-        <div>
-          <%= link_to"新規登録", new_user_registration_path, class: "btn btn-light" %>
-        </div>
-      </div>
+  <div class="top-image-wrapper">
+    <div class="top-content mx-auto">
+      <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo" %></h1>
       <div>
-        <%= link_to"ゲストログイン", "#",class: "btn btn-light" %>
+        <h3 class="text-center">Papeterie Stationとは？</h3>
+        <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
+        <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
       </div>
     </div>
+    <% unless user_signed_in? %>
+      <div class="mx-auto bg-light translucent-form">
+        <p class="text-secondary">\ユーザー登録してお気に入り登録をしよう/</p>
+        <div>
+          <div class="d-flex gap-1 mx-auto">
+            <div>
+              <%= link_to"ログイン", new_user_session_path, class: "btn  bg-alminium btn-outline-alminium" %>
+            </div>
+            <div>
+              <%= link_to"新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
+            </div>
+          </div>
+          <div class="mx-auto">
+            <%= link_to"ゲストログイン", "#", class: "btn btn-paper bg-paper" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-<footer class="bg-sub mt-auto py-2">
+<footer class="bg-ink mt-auto py-2">
   <div>
-    <p>&copy; 2023 Tamada Arino</p>
+    <p class="text-light">&copy; 2023 Tamada Arino</p>
   </div>
 </footer>

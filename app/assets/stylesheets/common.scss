@@ -1,13 +1,40 @@
+.page-logo {
+    width: 40vw;
+}
 .body {
     color: #333;
 }
 ul {
     list-style: none;
   }
-.container{
+.container {
     min-height: 90vh;
+    height: fit-content;
     box-sizing: border-box;
 }
-.bg-sub{
+.bg-sub {
     background: #CDB1C1;
+}
+.mx-auto {
+    width: fit-content;
+}
+.btn-main {
+    background: #DBB0B0;
+    color: white;
+}
+.top-content {
+    padding: 10px 0;
+}
+.top-image-wrapper {
+    background-image: image-url('top-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 750px;
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+    position: relative;
+}
+.translucent-form {
+    padding: 10px 20px;
+    border-radius: 10px;
 }
