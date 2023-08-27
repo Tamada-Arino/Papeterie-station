@@ -1,6 +1,9 @@
 .page-logo {
     width: 40vw;
 }
+.banner-logo {
+    width: 200px;
+}
 .body {
     color: #333;
 }
@@ -29,12 +32,14 @@ ul {
     background-image: image-url('top-image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 750px;
+    height: fit-content;
     margin: 0 calc(50% - 50vw);
     width: 100vw;
     position: relative;
+    padding: 30px;
 }
 .translucent-form {
+    background-color:rgba(255,255,255,0.7);
     padding: 10px 20px;
     border-radius: 10px;
 }
