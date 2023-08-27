@@ -11,8 +11,10 @@
   </head>
 
   <body class="body">
+    <%= render "layouts/shared/header" %>
     <%= render "layouts/shared/notice" %>
     <%= yield %>
+    <%= render"layouts/shared/footer" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
