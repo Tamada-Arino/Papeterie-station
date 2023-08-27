@@ -1,30 +1,28 @@
-<div class="container">
-  <div class="top-image-wrapper">
-    <div class="top-content mx-auto">
-      <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo" %></h1>
-      <div>
-        <h3 class="text-center">Papeterie Stationとは？</h3>
-        <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
-        <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
-      </div>
+<div class="top-image-wrapper">
+  <div class="top-content mx-auto">
+    <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo" %></h1>
+    <div>
+      <h3 class="text-center">Papeterie Stationとは？</h3>
+      <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
+      <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
     </div>
-    <div class="mx-auto translucent-form">
-      <% unless user_signed_in? %>
-        <p class="text-secondary">\ユーザー登録してお気に入り登録をしよう/</p>
-        <div>
-          <div class="d-flex gap-1 mx-auto">
-            <div>
-              <%= link_to"新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
-            </div>
-            <div>
-              <%= link_to"ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
-            </div>
+  </div>
+  <div class="mx-auto translucent-form">
+    <% unless user_signed_in? %>
+      <p class="text-secondary">\ユーザー登録してお気に入り登録をしよう/</p>
+      <div>
+        <div class="d-flex gap-1 mx-auto">
+          <div>
+            <%= link_to"新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
           </div>
-          <div class="mx-auto">
-            <%= link_to"ゲストログイン", "#", class: "btn btn-paper bg-paper" %>
+          <div>
+            <%= link_to"ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
           </div>
         </div>
-      <% end %>
-    </div>
+        <div class="mx-auto">
+          <%= link_to"ゲストログイン", "#", class: "btn btn-paper bg-paper" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
