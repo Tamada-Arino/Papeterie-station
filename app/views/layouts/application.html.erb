@@ -7,17 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="body">
-    <% unless notice == nil && alert == nil%>
-      <div class="bg-light w-100 text-center">
-        <p class="notice text-info"><%= notice %></p>
-        <p class="alert text-danger"><%= alert %></p>
-      </div>
-    <% end %>
+    <%= render "layouts/shared/notice" %>
     <%= yield %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

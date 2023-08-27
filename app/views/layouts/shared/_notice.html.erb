@@ -1,0 +1,9 @@
+<% unless notice == nil && alert == nil%>
+  <div class="bg-light w-100 text-center">
+    <% if notice != nil %>
+      <p class="notice text-info"><%= notice %></p>
+    <% else %>
+      <p class="alert text-danger"><%= alert %></p>
+  </div>
+  <% end %>
+<% end %>
