@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :name, presence: true
-  validates :avatar, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg']}
 end

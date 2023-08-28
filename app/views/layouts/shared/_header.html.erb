@@ -6,7 +6,9 @@
   </div>
   <div class="align-self-center">
     <% if user_signed_in? %>
-      <p>ようこそ、<%= currentuser.name %>さん！</p>
+      <p>ようこそ、<%= current_user.name %>さん！</p>
+      <%= link_to "プロフィール編集", edit_user_registration_path %>
+      <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <ul class="d-flex gap-1">
         <li>
