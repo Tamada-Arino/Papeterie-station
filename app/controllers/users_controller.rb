@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
   end
 
   def profile
+    if current_user.email == 'guest@example.com'
+      redirect_to user_path(current_user.id), alert: 'ゲストユーザーの更新・削除はできません。'
+    end
   end
 
   def update_profile
