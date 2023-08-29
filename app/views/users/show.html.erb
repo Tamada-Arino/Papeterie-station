@@ -1,8 +1,8 @@
 <h3><%= @user.name %></h3>
 <h5>プロフィール</h5>
-<%= image_tag @user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-large" %>
+<%= image_tag @user.avatar.attached? ? @user.avatar : 'default_avatar.png', class: "avatar-large" %>
 <p><%= @user.introduction %></p>
-<% if @user.id == current_user.id %>
+<% if user_signed_in? && @user.id == current_user.id %>
   <%= link_to users_profile_path do %>
     編集
   <% end %>
@@ -14,7 +14,7 @@
   <li class="nav-item">
     <a href="#favolites" class="nav-link <%= 'active' if params[:tab] == 'favorites' %>" data-bs-toggle="tab">お気に入り一覧</a>
   </li>
-  <% if @user.id == current_user.id %>
+  <% if user_signed_in? && @user.id == current_user.id %>
     <li class="nav-item">
       <a href="#histories" class="nav-link <%= 'active' if params[:tab] == 'histories' %>" data-bs-toggle="tab">チェック履歴</a>
     </li>
@@ -27,7 +27,7 @@
   <div id="favolites" class="tab-pane <%= 'active' if params[:tab] == 'favorites' %>">
     <p>お気に入り一覧</p>
   </div>
-  <% if @user.id == current_user.id %>
+  <% if user_signed_in? && @user.id == current_user.id %>
     <div id="histories" class="tab-pane <%= 'active' if params[:tab] == 'histories' %>">
       <p>チェック履歴</p>
     </div>
