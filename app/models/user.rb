@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :products
+
   validates :name, presence: true
 
   def self.guest
