@@ -25,8 +25,8 @@
       </div>
     <% else %>
       <p>お気に入り製品をチェックしよう</p>
-      <p>お気に入り履歴</p>
-      <p>閲覧履歴</p>
+      <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
+      <%= link_to "チェック履歴", user_path(current_user.id, tab: 'histories') %>
     <% end %>
   </div>
 </div>

@@ -7,23 +7,23 @@
 <% end %>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a href="#posts" class="nav-link active" data-bs-toggle="tab">投稿一覧</a>
+    <a href="#posts" class="nav-link <%= 'active' if params[:tab] == nil %>" data-bs-toggle="tab">投稿一覧</a>
   </li>
   <li class="nav-item">
-    <a href="#favolites" class="nav-link" data-bs-toggle="tab">お気に入り一覧</a>
+    <a href="#favolites" class="nav-link <%= 'active' if params[:tab] == 'favorites' %>" data-bs-toggle="tab">お気に入り一覧</a>
   </li>
   <li class="nav-item">
-    <a href="#histories" class="nav-link" data-bs-toggle="tab">チェック履歴</a>
+    <a href="#histories" class="nav-link <%= 'active' if params[:tab] == 'histories' %>" data-bs-toggle="tab">チェック履歴</a>
   </li>
 </ul>
 <div class="tab-content">
-  <div id="posts" class="tab-pane active">
+  <div id="posts" class="tab-pane <%= 'active' if params[:tab] == nil %>">
     <p>投稿一覧</p>
   </div>
-  <div id="favolites" class="tab-pane">
+  <div id="favolites" class="tab-pane <%= 'active' if params[:tab] == 'favorites' %>">
     <p>お気に入り一覧</p>
   </div>
-  <div id="histories" class="tab-pane">
+  <div id="histories" class="tab-pane <%= 'active' if params[:tab] == 'histories' %>">
     <p>チェック履歴</p>
   </div>
 </div>
