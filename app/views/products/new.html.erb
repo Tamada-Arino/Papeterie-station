@@ -1,0 +1,24 @@
+<h3>製品投稿</h3>
+<%= render "shared/error", obj: @product %>
+<table>
+  <%= form_with model: @product do |f| %>
+    <tr>
+      <th><%= f.label :name, "製品名" %><th>
+      <td><%= f.text_field :name, :placeholder => "製品名を入力" %><td>
+    </tr>
+    <tr>
+      <th><%= f.label :description, "製品説明" %><th>
+      <td><%= f.text_area :description, :placeholder => "説明を入力" %><td>
+    </tr>
+    <tr>
+      <th><%= f.label :price, "参考価格" %><th>
+      <td><%= f.text_field :price, :placeholder => "参考価格" %><td>
+    </tr>
+    <tr>
+      <th><%= f.label :images, "画像" %><th>
+      <td><%= f.file_field :images %><td>
+    </tr>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "投稿" %>
+  <% end %>
+</table>

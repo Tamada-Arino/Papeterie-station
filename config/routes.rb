@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   patch '/users/profile', to: 'users#update_profile'
   resources :users, only: [:show]
 
-  resources :product
+  resources :products
 end

@@ -1,0 +1,12 @@
+<h3>製品一覧</h3>
+<%= link_to "製品を投稿", new_product_path %>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="productBox col-lg-3 col-md-4 col-sm-6">
+        <%= product.name %>
+        <%= product.price unless product.price.nil? %>
+        <%= product.user.name %>
+      </div>
+    <% end %>
+  </div>
+
