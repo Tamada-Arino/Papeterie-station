@@ -37,3 +37,15 @@ ul {
     padding: 10px 20px;
     border-radius: 10px;
 }
+.avatar-small {
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+.avatar-large {
+    width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 50%;
+}
