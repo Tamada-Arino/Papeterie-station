@@ -2,4 +2,21 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def profile
+  end
+
+  def update_profile
+    if current_user.update(profile_params)
+      redirect_to user_path(current_user.id), notice: 'プロフィールが更新されました。'
+    else
+      render :profile
+    end
+  end
+
+  private
+
+  def profile_params
+    params.require(:user).permit(:avatar, :name)
+  end
 end
