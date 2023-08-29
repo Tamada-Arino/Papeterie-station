@@ -11,7 +11,7 @@
           <%= current_user.name %>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><%= link_to "プロフィール", user_path(current_user.id), class: "dropdown-item" %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "登録情報編集", edit_user_registration_path, class: "dropdown-item" %></li>
           <li><hr class="dropdown-divider"></li>
           <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
@@ -26,7 +26,7 @@
           <%= link_to"ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
         </li>
         <li>
-          <%= link_to"ゲストログイン", "#",class: "btn btn-light" %>
+          <%= link_to"ゲストログイン", users_guest_sign_in_path, class: "btn btn-light" %>
         </li>
       </ul>
     <% end %>
