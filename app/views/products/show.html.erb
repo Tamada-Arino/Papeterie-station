@@ -1,8 +1,13 @@
-<h3>投稿内容</h3>
+<h3><%= @product.name %></h3>
 <% if user_signed_in? && @product.user.id == current_user.id %>
-  <%= link_to "編集", edit_product_path(@product.id)%>
+  <p><%= link_to "編集", edit_product_path(@product.id)%></p>
+<% end %>
+<%= link_to user_path(@product.user.id) do%>
+  <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-small" %>
+  <%= @product.user.name %>
 <% end %>
 <div>
-  <%= @product.name %>
-  <%= @product.description %>
+  <%= image_tag "noimage.png" %>
+  <p><%= @product.price unless @product.price.nil? %></p>
+  <p><%= @product.description %></p>
 </div>

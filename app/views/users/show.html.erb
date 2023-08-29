@@ -23,9 +23,15 @@
 <div class="tab-content">
   <div id="posts" class="tab-pane <%= 'active' if params[:tab] == nil %>">
     <% @user.products.each do |product| %>
-      <div>
+      <div class="productBox bg-ink p-0 col-lg-3 col-md-4 col-sm-6 col-xs-6">
         <%= link_to product_path(product.id) do %>
-          <%= product.name %>
+          <%= image_tag "noimage.png", class: "product-image" %>
+          <div class="p-2 text-light">
+            <h5><%= product.name %></h5>
+            <p><%= product.price unless product.price.nil? %></p>
+            <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-small" %>
+            <%= product.user.name %>
+          </div>
         <% end %>
       </div>
     <% end %>
