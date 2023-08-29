@@ -1,6 +1,6 @@
 <div class="top-image-wrapper">
   <div class="top-content mx-auto">
-    <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo" %></h1>
+    <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo pb-4" %></h1>
     <div>
       <h3 class="text-center">Papeterie Stationとは？</h3>
       <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
@@ -24,9 +24,15 @@
         </div>
       </div>
     <% else %>
-      <p>お気に入り製品をチェックしよう</p>
-      <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
-      <%= link_to "チェック履歴", user_path(current_user.id, tab: 'histories') %>
+      <p class="text-secondary">\お気に入り製品をチェックしよう/</p>
+      <div class="d-flex gap-1 mx-auto">
+        <div>
+          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
+        </div>
+        <div>
+          <%= link_to "チェック履歴", user_path(current_user.id, tab: 'histories') %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
