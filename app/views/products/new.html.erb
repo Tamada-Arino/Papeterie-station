@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th><%= f.label :images, "画像" %><th>
-      <td><%= f.file_field :images %><td>
+      <td><%= f.file_field :images, multiple: true %><td>
     </tr>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit "投稿" %>

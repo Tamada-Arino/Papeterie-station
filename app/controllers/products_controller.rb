@@ -28,6 +28,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if params[:product][:image_ids]
+      params[:product][:image_ids].each do |image_id|
+        image = @product.images.find(image_id)
+        image.purge
+      end
+    end
     if @product.update(product_params)
       redirect_to @product, notice: '投稿を変更しました'
     else
@@ -52,6 +58,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :user_id, :images)
+    params.require(:product).permit(:name, :description, :price, :user_id, images: [])
   end
 end

@@ -16,8 +16,15 @@
     </tr>
     <tr>
       <th><%= f.label :images, "画像" %><th>
-      <td><%= f.file_field :images %><td>
+      <td><%= f.file_field :images, multiple: true %><td>
     </tr>
+    <% if @product.images.present? %>
+      <p>現在登録されている画像（削除するものはチェックしてください）</p>
+      <% @product.images.each do |image| %>
+        <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+        <%= image_tag image, size:"100x100" %> <br>
+      <% end %>
+    <% end %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit "投稿" %>
   <% end %>
