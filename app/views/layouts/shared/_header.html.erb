@@ -6,9 +6,11 @@
   </div>
   <div class="align-self-center">
     <% if user_signed_in? %>
-      <p>ようこそ、<%= current_user.name %>さん！</p>
-      <%= link_to "プロフィール編集", edit_user_registration_path %>
-      <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <div class="d-flex gap-1">
+        <p>ようこそ、<%= current_user.name %>さん！</p>
+        <%= link_to "プロフィール", user_path(current_user.id) %>
+        <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn bg-alminium btn-outline-alminium" %>
+      </div>
     <% else %>
       <ul class="d-flex gap-1">
         <li>
