@@ -1,0 +1,8 @@
+<h3>投稿内容</h3>
+<% if user_signed_in? && @product.user.id == current_user.id %>
+  <%= link_to "編集", edit_product_path(@product.id)%>
+<% end %>
+<div>
+  <%= @product.name %>
+  <%= @product.description %>
+</div>

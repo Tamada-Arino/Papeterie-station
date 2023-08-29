@@ -22,7 +22,13 @@
 </ul>
 <div class="tab-content">
   <div id="posts" class="tab-pane <%= 'active' if params[:tab] == nil %>">
-    <p>投稿一覧</p>
+    <% @user.products.each do |product| %>
+      <div>
+        <%= link_to product_path(product.id) do %>
+          <%= product.name %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <div id="favolites" class="tab-pane <%= 'active' if params[:tab] == 'favorites' %>">
     <p>お気に入り一覧</p>
