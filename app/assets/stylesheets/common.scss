@@ -1,5 +1,6 @@
 .page-logo {
     width: 40vw;
+    min-width: 400px;
 }
 .banner-logo {
     width: 200px;
@@ -15,15 +16,8 @@ ul {
     height: fit-content;
     box-sizing: border-box;
 }
-.bg-sub {
-    background: #CDB1C1;
-}
 .mx-auto {
     width: fit-content;
-}
-.btn-main {
-    background: #DBB0B0;
-    color: white;
 }
 .top-content {
     padding: 10px 0;
