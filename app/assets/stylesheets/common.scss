@@ -71,3 +71,9 @@ ul {
     height: 100px;
 	object-fit: contain;
 }
+.over-wrapper {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+    position: relative;
+    padding: 30px;
+}
