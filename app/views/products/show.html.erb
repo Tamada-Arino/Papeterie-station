@@ -7,9 +7,15 @@
   <%= @product.user.name %>
 <% end %>
 <div>
-  <% @product.images.each do |image| %>
-    <%= image_tag image, class: "product-image" %>
-  <% end %>
+  <div>
+    <% if @product.images.present? %>
+      <% @product.images.each do |image| %>
+        <%= image_tag image, class: "product-image" %>
+      <% end %>
+    <% else %>
+      <%= image_tag 'noimage.png', class: "product-image" %>
+    <% end %>
+  </div>
   <p><%= @product.price unless @product.price.nil? %></p>
   <p><%= @product.description %></p>
 </div>

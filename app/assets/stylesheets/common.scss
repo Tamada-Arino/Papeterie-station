@@ -62,7 +62,12 @@ ul {
     border-radius: 15px 15px 0 0;
 }
 .product-image {
-    width: 400px;
-    height: 100%;
-	object-fit: cover;
+    width: 500px;
+    height: 500px;
+	object-fit: contain;
+}
+.product-image-small {
+    width: 100px;
+    height: 100px;
+	object-fit: contain;
 }
