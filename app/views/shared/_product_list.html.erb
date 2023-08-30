@@ -4,7 +4,7 @@
     <div class="p-2 text-light">
       <h5><%= product.name %></h5>
       <p><%= product.price unless product.price.nil? %></p>
-      <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-small" %>
+      <%= image_tag product.user.avatar.attached? ? product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
       <%= product.user.name %>
     </div>
   <% end %>
