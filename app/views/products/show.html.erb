@@ -3,7 +3,7 @@
   <p><%= link_to "編集", edit_product_path(@product.id)%></p>
 <% end %>
 <%= link_to user_path(@product.user.id) do%>
-  <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-small" %>
+  <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
   <%= @product.user.name %>
 <% end %>
 <div>
