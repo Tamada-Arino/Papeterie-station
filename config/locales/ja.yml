@@ -5,3 +5,6 @@ ja:
     attributes:
       user:
         name: 名前
+  devise:  
+    failure:  
+      deleted_account: このアカウントは削除されています。
