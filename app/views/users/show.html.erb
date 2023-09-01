@@ -27,7 +27,9 @@
     </div>
   </div>
   <div id="favolites" class="tab-pane <%= 'active' if params[:tab] == 'favorites' %>">
-    <p>お気に入り一覧</p>
+    <div class="row p-3 gap-2">
+      <%= render partial: 'shared/product_list', collection: @user.favorite_products, as: :product %>
+    </div>
   </div>
   <% if user_signed_in? && @user.id == current_user.id %>
     <div id="histories" class="tab-pane <%= 'active' if params[:tab] == 'histories' %>">
