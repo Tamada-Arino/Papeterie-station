@@ -35,12 +35,12 @@
 </ul>
 <div class="tab-content">
   <div id="posts" class="tab-pane <%= 'active' if params[:tab] == nil %>">
-    <div class="row p-3 gap-2">
+    <div class="row">
       <%= render partial: 'shared/product_list', collection: @user.products.order(created_at: :desc), as: :product %>
     </div>
   </div>
   <div id="favolites" class="tab-pane <%= 'active' if params[:tab] == 'favorites' %>">
-    <div class="row p-3 gap-2">
+    <div class="row">
       <%= render partial: 'shared/product_list', collection: @user.favorite_products.order(created_at: :desc), as: :product %>
     </div>
   </div>

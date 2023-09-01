@@ -1,19 +1,21 @@
-<div class="productBox bg-ink p-0 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+<div class="p-0 col-lg-3 col-md-4 col-sm-6 col-xs-3">
   <%= link_to product_path(product.id), class: "text-decoration-none" do %>
-    <div class="product-list">
-      <%= image_tag (product.images.present? ? product.images.first : 'noimage.png'), class: "product-list-image" %>
-      <% if current_user && product.favorited_by?(current_user) %>
-          <i class="bi bi-heart-fill favorite text-red"></i>
-      <% end %>
-    </div>
-    <div class="p-2 text-light">
-      <h5><%= product.name %></h5>
-      <% unless product.price.nil? %>
-        <p class="m-0">参考価格：<%= product.price.to_s(:delimited) %>円</p>
-      <% end %>
-      <p class="m-0 text-alminium"><i class="bi bi-heart-fill"></i> <%= product.favorites.count %> いいね</p>
-      <%= image_tag product.user.avatar.attached? ? product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
-      <%= product.user.name %>
+    <div class="productBox bg-ink m-1">
+      <div class="product-list">
+        <%= image_tag (product.images.present? ? product.images.first : 'noimage.png'), class: "product-list-image" %>
+        <% if current_user && product.favorited_by?(current_user) %>
+            <i class="bi bi-heart-fill favorite text-red"></i>
+        <% end %>
+      </div>
+      <div class="p-2 text-light">
+        <h5><%= product.name %></h5>
+        <% unless product.price.nil? %>
+          <p class="m-0">参考価格：<%= product.price.to_s(:delimited) %>円</p>
+        <% end %>
+        <p class="m-0 text-alminium"><i class="bi bi-heart-fill"></i> <%= product.favorites.count %> いいね</p>
+        <%= image_tag product.user.avatar.attached? ? product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
+        <%= product.user.name %>
+      </div>
     </div>
   <% end %>
 </div>
