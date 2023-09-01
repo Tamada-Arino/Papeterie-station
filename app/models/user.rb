@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   has_many :products
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true
 

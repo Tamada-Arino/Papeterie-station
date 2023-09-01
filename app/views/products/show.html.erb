@@ -6,6 +6,11 @@
   <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
   <%= @product.user.name %>
 <% end %>
+<% if current_user && @product.favorited_by?(current_user) %>
+  <%= button_to "いいね解除", product_favorites_path(@product), method: :delete %>
+<% else %>
+  <%= button_to "いいね", product_favorites_path(@product), method: :post %>
+<% end %>
 <div>
   <div>
     <% if @product.images.present? %>

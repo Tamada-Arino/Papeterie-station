@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/profile', to: 'users#profile'
   patch '/users/profile', to: 'users#update_profile'
   resources :users, only: [:show]
-
-  resources :products
+  resources :products do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
