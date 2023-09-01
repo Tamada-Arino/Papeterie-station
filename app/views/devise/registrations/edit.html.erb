@@ -34,7 +34,26 @@
   <h3><%= t('.cancel_my_account') %></h3>
   <div>
     <%= t('.unhappy') %>
-    <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure'), turbo_confirm: t('.are_you_sure') }, class:"btn btn-danger", method: :delete %>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+      <%= t('.cancel_my_account') %>
+    </button>
+  </div>
+</div>
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">削除確認</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        本当に削除しますか？（削除後同じメールアドレスは登録できません）
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+        <%= button_to t('.cancel_my_account'), registration_path(resource_name), class:"btn btn-danger", method: :delete %>
+      </div>
+    </div>
   </div>
 </div>
 <%= link_to t('devise.shared.links.back'), :back %>
