@@ -1,33 +1,57 @@
 <h3>投稿の編集</h3>
 <%= render "shared/error", obj: @product %>
-<table>
-  <%= form_with model: @product do |f| %>
-    <tr>
-      <th><%= f.label :name, "製品名" %><th>
-      <td><%= f.text_field :name, :placeholder => "製品名を入力" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :description, "製品説明" %><th>
-      <td><%= f.text_area :description, :placeholder => "説明を入力" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :price, "参考価格" %><th>
-      <td><%= f.text_field :price, :placeholder => "参考価格" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :images, "画像" %><th>
-      <td><%= f.file_field :images, multiple: true %><td>
-    </tr>
-    <% if @product.images.present? %>
-      <p>現在登録されている画像（削除するものはチェックしてください）</p>
+<%= form_with model: @product do |f| %>
+  <div class="p-2">
+    <%= f.label :name, "製品名" %><br>
+    <%= f.text_field :name, :placeholder => "製品名を入力" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :description, "製品説明" %><br>
+    <%= f.text_area :description, class: "w-100", :placeholder => "説明を入力" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :price, "参考価格" %><br>
+    <%= f.text_field :price, :placeholder => "参考価格" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :images, "画像" %><br>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+  <% if @product.images.present? %>
+    <div class="p-2">
+      現在登録されている画像（削除するものはチェックしてください）<br>
       <% @product.images.each do |image| %>
         <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
         <%= image_tag image, size:"100x100" %> <br>
       <% end %>
-    <% end %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "投稿" %>
+    </div>
   <% end %>
-</table>
-<p>削除しますか？</p>
-<%= button_to "投稿を削除", product_path, method: :delete, class: "btn btn-danger" %>
+  <div class="p-2">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "編集を完了する", class: "btn btn-success" %>
+  </div>
+<% end %>
+<div class="mt-5">
+  <p>この投稿を削除しますか？
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+      投稿を削除
+    </button>
+  </p>
+</div>
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">削除確認</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        本当に投稿を削除しますか？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+        <%= button_to "削除", product_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

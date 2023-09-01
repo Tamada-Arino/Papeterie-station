@@ -1,24 +1,24 @@
 <h3>製品投稿</h3>
 <%= render "shared/error", obj: @product %>
-<table>
-  <%= form_with model: @product do |f| %>
-    <tr>
-      <th><%= f.label :name, "製品名" %><th>
-      <td><%= f.text_field :name, :placeholder => "製品名を入力" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :description, "製品説明" %><th>
-      <td><%= f.text_area :description, :placeholder => "説明を入力" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :price, "参考価格" %><th>
-      <td><%= f.text_field :price, :placeholder => "参考価格" %><td>
-    </tr>
-    <tr>
-      <th><%= f.label :images, "画像" %><th>
-      <td><%= f.file_field :images, multiple: true %><td>
-    </tr>
+<%= form_with model: @product do |f| %>
+  <div class="p-2">
+    <%= f.label :name, "製品名" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+    <%= f.text_field :name, :placeholder => "製品名を入力" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :description, "製品説明" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+    <%= f.text_area :description, class: "w-100", :placeholder => "説明を入力" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :price, "参考価格" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br>
+    <%= f.text_field :price, :placeholder => "参考価格" %>
+  </div>
+  <div class="p-2">
+    <%= f.label :images, "画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+  <div class="p-2">
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "投稿" %>
-  <% end %>
-</table>
+    <%= f.submit "編集を完了する", class: "btn btn-success" %>
+  </div>
+<% end %>
