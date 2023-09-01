@@ -12,5 +12,4 @@ class FavoritesController < ApplicationController
     current_user.favorites.find_by(product: @product).destroy
     redirect_to @product
   end
-
 end

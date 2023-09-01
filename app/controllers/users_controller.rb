@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:profile, :update_profile]
+  before_action :set_user, only: [:show, :follows, :followers]
 
   def show
-    @user = User.find(params[:id])
   end
 
   def profile
@@ -19,7 +19,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def follows
+  end
+
+  def followers
+  end
+
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def profile_params
     params.require(:user).permit(:avatar, :name, :introduction)
