@@ -12,16 +12,14 @@
   <% end %>
 </div>
 <p><%= @user.introduction %></p>
-<div>
-  <p>
-    <%= link_to follows_user_path(@user.id) do %>
-      <%= @user.following_users.count.to_s(:delimited) %> フォロー   
-    <% end %>
-    <%= link_to followers_user_path(@user.id) do %>
-      <%= @user.follower_users.count.to_s(:delimited) %> フォロワー
-    <% end %>
-  </p>
-</div>
+<p>
+  <%= link_to follows_user_path(@user.id), class: "text-decoration-none" do %>
+    <%= @user.following_users.count.to_s(:delimited) %> フォロー　 
+  <% end %>
+  <%= link_to followers_user_path(@user.id), class: "text-decoration-none" do %>
+    <%= @user.follower_users.count.to_s(:delimited) %> フォロワー
+  <% end %>
+</p>
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a href="#posts" class="nav-link <%= 'active' if params[:tab] == nil %>" data-bs-toggle="tab">投稿一覧</a>
