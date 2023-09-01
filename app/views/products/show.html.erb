@@ -1,16 +1,27 @@
 <h3><%= @product.name %></h3>
 <% if user_signed_in? && @product.user.id == current_user.id %>
-  <p><%= link_to "編集", edit_product_path(@product.id)%></p>
+  <div>
+    <%= link_to edit_product_path(@product.id) do %>
+      <i class="bi bi-pencil-square"></i> 編集
+    <% end %>
+  </div>
 <% end %>
 <%= link_to user_path(@product.user.id) do%>
   <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
   <%= @product.user.name %>
 <% end %>
-<% if current_user && @product.favorited_by?(current_user) %>
-  <%= button_to "いいね解除", product_favorites_path(@product), method: :delete %>
-<% else %>
-  <%= button_to "いいね", product_favorites_path(@product), method: :post %>
-<% end %>
+<div class="d-flex align-self-center">
+  <% if current_user && @product.favorited_by?(current_user) %>
+    <%= button_to product_favorites_path(@product), method: :delete, class: "favorite text-red" do %>
+      <i class="bi bi-heart-fill"></i>
+    <% end %>
+  <% else %>
+    <%= button_to product_favorites_path(@product), method: :post, class: "favorite text-secondary" do %>
+      <i class="bi bi-heart"></i>
+    <% end %>
+  <% end %>
+  <p class="m-0"><%= @product.favorites.count %> いいね</p>
+</div>
 <div>
   <div>
     <% if @product.images.present? %>

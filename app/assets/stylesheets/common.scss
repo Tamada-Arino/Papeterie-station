@@ -62,8 +62,8 @@ ul {
     border-radius: 15px 15px 0 0;
 }
 .product-image {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 	object-fit: contain;
 }
 .product-image-small {
@@ -80,4 +80,9 @@ ul {
 .notice-alert {
     border-radius: 15px;
     min-width: 40vw;
+}
+.favorite {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
 }
