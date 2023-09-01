@@ -6,11 +6,13 @@
     <% end %>
   </div>
 <% end %>
-<%= link_to user_path(@product.user.id) do%>
-  <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
-  <%= @product.user.name %>
-<% end %>
-<div class="d-flex align-self-center">
+<p class="text-end">presented by 
+  <%= link_to user_path(@product.user.id) do%>
+    <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
+    <%= @product.user.name %>
+  <% end %>
+</p>
+<div class="d-flex text-right">
   <% if current_user && @product.favorited_by?(current_user) %>
     <%= button_to product_favorites_path(@product), method: :delete, class: "favorite text-red" do %>
       <i class="bi bi-heart-fill"></i>
@@ -20,7 +22,7 @@
       <i class="bi bi-heart"></i>
     <% end %>
   <% end %>
-  <p class="m-0"><%= @product.favorites.count %> いいね</p>
+  <p class="m-0 text-secondary"><%= @product.favorites.count %> いいね</p>
 </div>
 <div>
   <div>
