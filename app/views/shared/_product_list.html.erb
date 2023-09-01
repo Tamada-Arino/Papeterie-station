@@ -1,6 +1,11 @@
 <div class="productBox bg-ink p-0 col-lg-3 col-md-4 col-sm-6 col-xs-6">
   <%= link_to product_path(product.id), class: "text-decoration-none" do %>
-    <%= image_tag (product.images.present? ? product.images.first : 'noimage.png'), class: "product-list-image" %>
+    <div class="product-list">
+      <%= image_tag (product.images.present? ? product.images.first : 'noimage.png'), class: "product-list-image" %>
+      <% if current_user && product.favorited_by?(current_user) %>
+          <i class="bi bi-heart-fill favorite text-red"></i>
+      <% end %>
+    </div>
     <div class="p-2 text-light">
       <h5><%= product.name %></h5>
       <p><%= product.price unless product.price.nil? %></p>

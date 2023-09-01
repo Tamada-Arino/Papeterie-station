@@ -86,3 +86,12 @@ ul {
     background: transparent;
     font-size: 1.5rem;
 }
+.product-list {
+    position: relative;
+}
+.product-list .favorite {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    font-size: 2rem;
+}
