@@ -2,9 +2,14 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      product: 製品
     attributes:
       user:
         name: 名前
+      product:
+        name: 製品名
+        description: 製品説明
+        price: 参考価格
   devise:  
     failure:  
       deleted_account: このアカウントは削除されています。
