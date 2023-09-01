@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between">
+  <%= link_to user_path(user.id) do %>
+    <p class="h5">
+      <%= image_tag user.avatar.attached? ? user.avatar : 'default_avatar.png', class: "avatar-small" %>
+      <%= user.name %>
+    </p>
+    <p><%= user.introduction %></p>
+  <% end%>
+  <% if current_user && current_user.id != user.id %>
+    <% if current_user.following_users.include?(user) %>
+      <%= button_to "フォローを解除", user_relationships_path(user.id), method: :delete, class: "btn btn-danger" %>
+    <% else %>
+      <%= button_to "フォローする", user_relationships_path(user.id), method: :post, class:"btn btn-success" %>
+    <% end %>
+  <% end %>
+</div>
