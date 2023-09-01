@@ -32,6 +32,8 @@
       <%= image_tag 'noimage.png', class: "product-image" %>
     <% end %>
   </div>
-  <p><%= @product.price unless @product.price.nil? %></p>
+  <% unless @product.price.nil? %>
+    <p>参考価格：<%= @product.price.to_s(:delimited) %>円</p>
+  <% end %>
   <p><%= @product.description %></p>
 </div>
