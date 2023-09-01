@@ -1,5 +1,9 @@
-<h3>製品一覧</h3>
-<%= link_to "製品を投稿", new_product_path %>
+<div class="d-flex justify-content-between">
+  <h3>製品一覧</h3>
+  <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
+    <i class="bi bi-plus-circle"></i> 製品を投稿
+  <% end %>
+</div>
 <div class="row">
   <%= render partial: 'shared/product_list', collection: @products, as: :product %>
 </div>

@@ -13,6 +13,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item" %></li>
+          <li><%= link_to "製品を投稿", new_product_path, class: "dropdown-item" %></li>
           <li><%= link_to "登録情報編集", edit_user_registration_path, class: "dropdown-item" %></li>
           <li><hr class="dropdown-divider"></li>
           <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>

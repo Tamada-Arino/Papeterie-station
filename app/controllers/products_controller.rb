@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :access_right_check, only: [:edit, :update, :destroy]
   
   def index
-    @products = Product.all
+    @products = Product.order(created_at: :desc)
   end
 
   def show

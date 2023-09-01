@@ -27,7 +27,9 @@
       <p class="text-secondary">\お気に入り製品をシェアしよう/</p>
       <div>
         <div class="mx-auto">
-          <%= link_to "製品を投稿", new_product_path, class: "btn btn-red bg-red text-light" %>
+          <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
+            <i class="bi bi-plus-circle"></i> 製品を投稿
+          <% end %>
         </div>
         <div class="d-flex gap-1 mx-auto">
           <div>
