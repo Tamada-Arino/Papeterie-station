@@ -27,10 +27,10 @@
 <div>
   <div>
     <% if @product.images.present? %>
-      <div id="carouselExampleIndicators" class="carousel slide">
+      <div id="imageCarousel" class="carousel slide">
         <div class="carousel-indicators">
           <% @product.images.each_with_index do |image, i| %>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-label="Slide <%= i + 1 %>"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-label="Slide <%= i + 1 %>"></button>
           <% end %>
         </div>
         <div class="carousel-inner">
@@ -40,11 +40,11 @@
             </div>
           <% end %>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
