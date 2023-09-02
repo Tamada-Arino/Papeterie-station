@@ -1,3 +1,4 @@
+<% provide(:title, "#{@product.name}の編集") %>
 <h3>投稿の編集</h3>
 <%= render "shared/error", obj: @product %>
 <%= form_with model: @product do |f| %>

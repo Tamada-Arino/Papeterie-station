@@ -1,3 +1,4 @@
+<% provide(:title, @product.name) %>
 <h3><%= @product.name %></h3>
 <% if user_signed_in? && @product.user.id == current_user.id %>
   <div>

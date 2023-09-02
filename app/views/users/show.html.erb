@@ -1,3 +1,4 @@
+<% provide(:title, "#{@user.name}さんのマイページ") %>
 <%= image_tag @user.avatar.attached? ? @user.avatar : 'default_avatar.png', class: "avatar-large" %>
 <div class="d-flex justify-content-between">
   <h3><%= @user.name %></h3>
