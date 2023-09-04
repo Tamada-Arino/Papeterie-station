@@ -9,9 +9,7 @@
       </div>
       <div class="p-2 text-light">
         <h5><%= product.name %></h5>
-        <% unless product.price.nil? %>
-          <p class="m-0">参考価格：<%= product.price.to_s(:delimited) %>円</p>
-        <% end %>
+        <p class="m-0">参考価格：<%= product.price.to_s(:delimited) %>円</p>
         <p class="m-0 text-alminium"><i class="bi bi-heart-fill"></i> <%= product.favorites.count %> いいね</p>
         <%= image_tag product.user.avatar.attached? ? product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
         <%= product.user.name %>
