@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = current_user.comments.new
+    @product = Product.new
   end
 
   def create

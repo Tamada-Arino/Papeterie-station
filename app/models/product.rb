@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :price, presence: true
   validate :validate_number_of_files
 
   def favorited_by?(user)
