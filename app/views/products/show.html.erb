@@ -74,19 +74,6 @@
         </div>
       </div>
     <% end %>
-    <% @product.comments.each do |comment| %>
-      <div class="m-1">
-        <div class="d-flex justify-content-between">
-          <%= link_to user_path(comment.user.id) do %>
-            <%= image_tag comment.user.avatar.attached? ? comment.user.avatar : 'default_avatar.png', class: "avatar-small" %>
-            <%= comment.user.name %>
-          <% end %>
-          <% if comment.user == current_user %>
-            <%= button_to "削除", comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
-          <% end %>
-        </div>
-        <p><%= comment.content %></p>
-      </div>
-    <% end %>
+    <%= render partial: 'shared/comment_list', collection: @product.comments, as: :comment %>
   </div>
 </div>
