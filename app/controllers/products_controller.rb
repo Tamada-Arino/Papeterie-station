@@ -8,10 +8,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def new
-    @product = Product.new
+    @product = current_user.comments.new
   end
 
   def create

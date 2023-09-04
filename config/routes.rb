@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   end
   resources :products do
     resource :favorites, only: [:create, :destroy]
+    resource :comments, only: [:create, :destroy]
   end
 end
