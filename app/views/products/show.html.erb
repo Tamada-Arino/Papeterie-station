@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-8">
     <h3><%= @product.name %></h3>
-    <% if user_signed_in? && @product.user.id == current_user.id %>
+    <% if user_signed_in? && @product.user == current_user %>
       <div>
         <%= link_to edit_product_path(@product.id) do %>
           <i class="bi bi-pencil-square"></i> 編集
@@ -64,7 +64,7 @@
   </div>
   <div class="col-md-4 bg-alminium">
     <h4>コメント欄</h4>
-      <%= form_with(model: [@product, @comment], url: product_comments_path(@product), method: :post) do |f| %>
+      <%= form_with(model: [@comment], url: comments_path, method: :post) do |f| %>
         <div class="mb-3">
           <%= f.text_area :content, placeholder: "コメントを入力", class: "w-100", rows: 3 %>
           <%= f.hidden_field :product_id, value: @product.id %>
@@ -78,10 +78,12 @@
             <%= image_tag comment.user.avatar.attached? ? comment.user.avatar : 'default_avatar.png', class: "avatar-small" %>
             <%= comment.user.name %>
           <% end %>
+          <% if comment.user == current_user %>
+            <%= button_to "削除", comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
+          <% end %>
         </div>
         <p><%= comment.content %></p>
       </div>
     <% end %>
-
   </div>
 </div>
