@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rubocop-airbnb'
   gem 'annotate'
+  gem 'awesome_nested_set'
 end
 
 group :development do
