@@ -1,0 +1,10 @@
+<h3>カテゴリーから探す</h3>
+<%= @category.name %>
+<% if @category.leaves %>
+  <% @category.leaves.each do |category| %>
+    <%= category.name %>
+  <% end %>
+<% end %>
+<% Category.roots.each do |category| %>
+<%= category.name %>
+<% end %>
