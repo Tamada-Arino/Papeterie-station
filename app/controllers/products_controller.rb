@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all.pluck(:name, :id)
   end
 
   def create
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.pluck(:name, :id)
   end
 
   def update
@@ -59,6 +61,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :user_id, images: [])
+    params.require(:product).permit(:name, :description, :price, :user_id, :category_id, images: [])
   end
 end
