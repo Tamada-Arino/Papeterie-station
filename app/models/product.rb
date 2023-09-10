@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   FILE_NUMBER_LIMIT = 3
   
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many_attached :images
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
