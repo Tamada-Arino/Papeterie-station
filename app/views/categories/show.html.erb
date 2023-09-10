@@ -1,10 +1,31 @@
-<h3>カテゴリーから探す</h3>
-<%= @category.name %>
-<% if @category.leaves %>
-  <% @category.leaves.each do |category| %>
-    <%= category.name %>
-  <% end %>
-<% end %>
-<% Category.roots.each do |category| %>
-<%= category.name %>
-<% end %>
+<h3>カテゴリー:<%= @category.name %>から探す</h3>
+<div class="row">
+  <div class="sideBer col-md-3">
+    <ul>
+      <% Category.roots.each do |root_category| %>
+        <li>
+          <%= link_to root_category.name, category_path(root_category.id) %>
+          <ul>
+            <% root_category.leaves.each do |category| %>
+              <li><%= link_to category.name, category_path(category.id) %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="d-flex justify-content-between w-100 bg-alminium p-2">
+      <p class="m-0">並び替え:</p>
+      <div>
+        <%= link_to "新しい順", category_path(@category.id, order: "new"), class: "link-dark" %>
+        <%= link_to "古い順", category_path(@category.id, order: "old"), class: "link-dark" %>
+        <%= link_to "いいねが多い順", category_path(@category.id, order: "favolites"), class: "link-dark" %>
+      </div>
+    </div>
+    <% if params[:order] != nil %>
+      <p class="h4"><%= @order_text %></p>
+    <% end %>
+    <%= render partial: 'shared/product_list', collection: @products, as: :product %>
+  </div>
+</div>
