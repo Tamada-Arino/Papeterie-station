@@ -6,9 +6,6 @@ class CategoriesController < ApplicationController
 
     order = params[:order]
     case order
-    when "new"
-      @order_text = "新しい順"
-      @products = Product.where(category_id: all_category_ids).order(created_at: :desc)
     when "old"
       @order_text = "古い順"
       @products = Product.where(category_id: all_category_ids).order(created_at: :asc)
@@ -16,7 +13,8 @@ class CategoriesController < ApplicationController
       @order_text = "いいねが多い順"
       @products = Product.joins(:favorites).where(category_id: all_category_ids).group(:id).order('COUNT(favorites.id) DESC')
     else
-      @products = Product.where(category_id: all_category_ids)
+      @order_text = "新しい順"
+      @products = Product.where(category_id: all_category_ids).order(created_at: :desc)
     end
   end
 end

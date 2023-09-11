@@ -31,14 +31,12 @@
     <div class="d-flex justify-content-between w-100 bg-ink p-2">
       <p class="m-0 text-light">並び替え:</p>
       <div>
-        <%= link_to "新しい順", category_path(@category.id, order: "new"), class: "link-light" %>
+        <%= link_to "新しい順", category_path(@category.id), class: "link-light" %>
         <%= link_to "古い順", category_path(@category.id, order: "old"), class: "link-light" %>
         <%= link_to "いいねが多い順", category_path(@category.id, order: "favorites"), class: "link-light" %>
       </div>
     </div>
-    <% if params[:order] != nil %>
-      <p class="h4 p-2"><%= @order_text %></p>
-    <% end %>
+    <p class="h4 p-2"><%= @order_text %></p>
     <%= render partial: 'shared/product_list', collection: @products, as: :product %>
   </div>
 </div>
