@@ -6,32 +6,44 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-root_category = Category.create(name: "筆記用具", parent_id: nil)
-Category.create(name: "万年筆", parent_id: root_category.id)
-Category.create(name: "ボールペン", parent_id: root_category.id)
-Category.create(name: "シャープペンシル", parent_id: root_category.id)
-Category.create(name: "えんぴつ", parent_id: root_category.id)
-Category.create(name: "マーカー・サインペン", parent_id: root_category.id)
-Category.create(name: "筆・筆ペン", parent_id: root_category.id)
-Category.create(name: "修正液・修正テープ", parent_id: root_category.id)
-Category.create(name: "消しゴム", parent_id: root_category.id)
-Category.create(name: "その他(筆記用具)", parent_id: root_category.id)
+root_categories = [
+  {
+    name: "筆記用具",
+    children: [
+      "万年筆", "ボールペン", "シャープペンシル",
+      "えんぴつ", "マーカー・サインペン", "筆・筆ペン",
+      "修正液・修正テープ", "消しゴム", "その他(筆記用具)"
+    ]
+  },
+  {
+    name: "ノート・紙製品",
+    children: ["ノート", "手帳", "メモ帳・付箋", "その他(紙製品)"]
+  },
+  {
+    name: "ペンケース",
+    children: []
+  },
+  {
+    name: "ファイリング用品",
+    children: []
+  },
+  {
+    name: "切る・貼る",
+    children: [
+      "はさみ", "カッターナイフ", "ペーパーナイフ",
+      "ホッチキス", "のり・テープ", "その他(切る・貼る)"
+    ]
+  },
+  {
+    name: "その他",
+    children: []
+  }
+]
 
-root_category = Category.create(name: "ノート・紙製品", parent_id: nil)
-Category.create(name: "ノート", parent_id: root_category.id)
-Category.create(name: "手帳", parent_id: root_category.id)
-Category.create(name: "メモ帳・付箋", parent_id: root_category.id)
-Category.create(name: "その他(紙製品)", parent_id: root_category.id)
+root_categories.each do |root_category_data|
+  root_category = Category.create(name: root_category_data[:name], parent_id: nil)
 
-Category.create(name: "ペンケース", parent_id: nil)
-Category.create(name: "ファイリング用品", parent_id: nil)
-
-root_category = Category.create(name: "切る・貼る", parent_id: nil)
-Category.create(name: "はさみ", parent_id: root_category.id)
-Category.create(name: "カッターナイフ", parent_id: root_category.id)
-Category.create(name: "ペーパーナイフ", parent_id: root_category.id)
-Category.create(name: "ホッチキス", parent_id: root_category.id)
-Category.create(name: "のり・テープ", parent_id: root_category.id)
-Category.create(name: "その他(切る・貼る)", parent_id: root_category.id)
-
-Category.create(name: "その他", parent_id: nil)
+  root_category_data[:children].each do |child_name|
+    Category.create(name: child_name, parent_id: root_category.id)
+  end
+end
