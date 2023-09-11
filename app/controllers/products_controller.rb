@@ -9,6 +9,13 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
+
+    if @product.category_id != nil
+      @related_products = Product.where(category_id: @product.category_id)
+                            .where.not(id: @product.id)
+                            .order(created_at: :desc)
+                            .limit(4)
+    end
   end
 
   def new

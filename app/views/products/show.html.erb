@@ -85,4 +85,10 @@
     <% end %>
     <%= render partial: 'shared/comment_list', collection: @product.comments, as: :comment %>
   </div>
+  <% if @product.category_id != nil %>
+    <p class="h4">ほかの<%= @product.category.name %>カテゴリーの投稿</p>
+    <div class="row">
+      <%= render partial: 'shared/product_list', collection: @related_products, as: :product %>
+    </div>
+  <% end %>
 </div>
