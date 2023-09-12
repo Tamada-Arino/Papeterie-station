@@ -15,6 +15,12 @@ class Product < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  scope :related_to_category, ->(category_id, current_product_id) do
+    where(category_id: category_id)
+      .where.not(id: current_product_id)
+      .order(created_at: :desc)
+  end
+
   private
   def validate_number_of_files
     return if images.length <= FILE_NUMBER_LIMIT
