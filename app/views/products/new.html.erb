@@ -19,6 +19,10 @@
     <%= f.file_field :images, multiple: true %>
   </div>
   <div class="p-2">
+    <%= f.label :category_id, "カテゴリー" %> <span class="small bg-alminium text-light rounded p-1">任意</span>
+    <%= f.select :category_id, options_for_select(@categories), include_blank: "選択して下さい" %>
+  </div>
+  <div class="p-2">
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit "投稿する", class: "btn btn-success" %>
   </div>

@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :comments, only: [:create, :destroy]
+  resources :categories, only: [:show]
 end

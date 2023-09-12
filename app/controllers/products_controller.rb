@@ -9,10 +9,15 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
+
+    if @product.category_id != nil
+      @related_products = Product.related_to_category(@product.category_id, @product.id).limit(4)
+    end
   end
 
   def new
     @product = Product.new
+    @categories = Category.all.pluck(:name, :id)
   end
 
   def create
@@ -26,6 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.pluck(:name, :id)
   end
 
   def update
@@ -59,6 +65,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :user_id, images: [])
+    params.require(:product).permit(:name, :description, :price, :user_id, :category_id, images: [])
   end
 end

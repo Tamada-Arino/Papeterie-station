@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   FILE_NUMBER_LIMIT = 3
   
   belongs_to :user
+  belongs_to :category, optional: true
   has_many_attached :images
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -12,6 +13,12 @@ class Product < ApplicationRecord
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+
+  scope :related_to_category, ->(category_id, current_product_id) do
+    where(category_id: category_id)
+      .where.not(id: current_product_id)
+      .order(created_at: :desc)
   end
 
   private

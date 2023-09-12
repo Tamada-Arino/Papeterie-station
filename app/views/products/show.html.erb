@@ -1,65 +1,74 @@
 <% provide(:title, @product.name) %>
 <div class="row">
-  <div class="col-md-8">
-    <h3><%= @product.name %></h3>
-    <% if user_signed_in? && @product.user == current_user %>
-      <div>
-        <%= link_to edit_product_path(@product.id) do %>
-          <i class="bi bi-pencil-square"></i> 編集
+  <div class="col-md-8 p-0">
+    <% if @product.category_id != nil %>
+      <div class="bg-ink text-light w-100 m-0 p-2">
+        <% if @product.category.child? %>
+          <%= link_to @product.category.root.name, category_path(@product.category.root.id), class: "link-light" %> ＞ 
         <% end %>
+        <%= link_to @product.category.name, category_path(@product.category.id), class: "link-light" %> ＞ 
+        <%= @product.name %>
       </div>
     <% end %>
-    <p class="text-end">presented by 
-      <%= link_to user_path(@product.user.id) do%>
-        <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
-        <%= @product.user.name %>
+    <div class="px-3 py-2">
+      <h3><%= @product.name %></h3>
+      <% if user_signed_in? && @product.user == current_user %>
+        <div>
+          <%= link_to edit_product_path(@product.id) do %>
+            <i class="bi bi-pencil-square"></i> 編集
+          <% end %>
+        </div>
       <% end %>
-    </p>
-    <div class="d-flex text-right">
-      <% if current_user && @product.favorited_by?(current_user) %>
-        <%= button_to product_favorites_path(@product), method: :delete, class: "favorite text-red" do %>
-          <i class="bi bi-heart-fill"></i>
+      <p class="text-end">presented by 
+        <%= link_to user_path(@product.user.id) do%>
+          <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png', class: "avatar-small" %>
+          <%= @product.user.name %>
         <% end %>
-      <% else %>
-        <%= button_to product_favorites_path(@product), method: :post, class: "favorite text-secondary" do %>
-          <i class="bi bi-heart"></i>
-        <% end %>
-      <% end %>
-      <p class="m-0 text-secondary"><%= @product.favorites.count %> いいね</p>
-    </div>
-    <div>
-      <div>
-        <% if @product.images.present? %>
-          <div id="imageCarousel" class="carousel slide">
-            <div class="carousel-indicators">
-              <% @product.images.each_with_index do |image, i| %>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-label="Slide <%= i + 1 %>"></button>
-              <% end %>
-            </div>
-            <div class="carousel-inner">
-              <% @product.images.each_with_index do |image, i| %>
-                <div class="carousel-item <%= "active" if i.zero? %>">
-                  <%= image_tag image, class: "product-image d-block w-100" %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+      </p>
+      <div class="d-flex text-right">
+        <% if current_user && @product.favorited_by?(current_user) %>
+          <%= button_to product_favorites_path(@product), method: :delete, class: "favorite text-red" do %>
+            <i class="bi bi-heart-fill"></i>
+          <% end %>
         <% else %>
-          <%= image_tag 'noimage.png', class: "product-image d-block w-100" %>
+          <%= button_to product_favorites_path(@product), method: :post, class: "favorite text-secondary" do %>
+            <i class="bi bi-heart"></i>
+          <% end %>
         <% end %>
+        <p class="m-0 text-secondary"><%= @product.favorites.count %> いいね</p>
       </div>
-      <% unless @product.price.nil? %>
+      <div>
+        <div>
+          <% if @product.images.present? %>
+            <div id="imageCarousel" class="carousel slide">
+              <div class="carousel-indicators">
+                <% @product.images.each_with_index do |image, i| %>
+                  <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-label="Slide <%= i + 1 %>"></button>
+                <% end %>
+              </div>
+              <div class="carousel-inner">
+                <% @product.images.each_with_index do |image, i| %>
+                  <div class="carousel-item <%= "active" if i.zero? %>">
+                    <%= image_tag image, class: "product-image d-block w-100" %>
+                  </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          <% else %>
+            <%= image_tag 'noimage.png', class: "product-image d-block w-100" %>
+          <% end %>
+        </div>
         <p>参考価格：<%= @product.price.to_s(:delimited) %>円</p>
-      <% end %>
-      <p><%= @product.description %></p>
+        <p><%= @product.description %></p>
+      </div>
     </div>
   </div>
   <div class="col-md-4 bg-alminium">
@@ -76,4 +85,10 @@
     <% end %>
     <%= render partial: 'shared/comment_list', collection: @product.comments, as: :comment %>
   </div>
+  <% if @product.category_id != nil %>
+    <p class="h4">ほかの<%= @product.category.name %>カテゴリーの投稿</p>
+    <div class="row">
+      <%= render partial: 'shared/product_list', collection: @related_products, as: :product %>
+    </div>
+  <% end %>
 </div>
