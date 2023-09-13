@@ -5,10 +5,7 @@
     <i class="bi bi-plus-circle"></i> 製品を投稿
   <% end %>
 </div>
-<%= search_form_for @q, url: search_products_path, method: :get do |f| %>
-  <%= f.search_field :name_or_description_cont, placeholder: '商品名または説明を入力' %>
-  <%= f.submit '検索' %>
-<% end %>
+<%= render "shared/search_form" %>
 <div class="row">
   <%= render partial: 'shared/product_list', collection: @products, as: :product %>
 </div>

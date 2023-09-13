@@ -1,0 +1,4 @@
+<%= search_form_for @q, url: search_products_path, method: :get do |f| %>
+  <%= f.search_field :name_or_description_cont, placeholder: 'キーワードを入力' %>
+  <%= f.submit '検索' %>
+<% end %>
