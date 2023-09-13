@@ -28,11 +28,6 @@
   <li class="nav-item">
     <a href="#favolites" class="nav-link <%= 'active' if params[:tab] == 'favorites' %>" data-bs-toggle="tab">お気に入り一覧</a>
   </li>
-  <% if user_signed_in? && @user.id == current_user.id %>
-    <li class="nav-item">
-      <a href="#histories" class="nav-link <%= 'active' if params[:tab] == 'histories' %>" data-bs-toggle="tab">チェック履歴</a>
-    </li>
-  <% end %>
 </ul>
 <div class="tab-content">
   <div id="posts" class="tab-pane <%= 'active' if params[:tab] == nil %>">
@@ -45,9 +40,4 @@
       <%= render partial: 'shared/product_list', collection: @user.favorite_products.order(created_at: :desc), as: :product %>
     </div>
   </div>
-  <% if user_signed_in? && @user.id == current_user.id %>
-    <div id="histories" class="tab-pane <%= 'active' if params[:tab] == 'histories' %>">
-      <p>チェック履歴</p>
-    </div>
-  <% end %>
 </div>
