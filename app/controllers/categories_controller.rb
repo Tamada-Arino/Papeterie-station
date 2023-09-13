@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
-    @root_categories =  Category.roots
     all_category_ids = @category.self_and_descendants.pluck(:id)
 
     order = params[:order]
