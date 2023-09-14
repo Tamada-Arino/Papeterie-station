@@ -3,9 +3,11 @@
   <div class="col-md-8 p-0">
     <% if @product.category_id != nil %>
       <div class="bg-ink text-light w-100 m-0 p-2">
+        <% if @product.category.child? %>
           <%= link_to @product.category.root.name, category_path(@product.category.root.id), class: "link-light" %> ＞ 
-          <%= link_to @product.category.name, category_path(@product.category.id), class: "link-light" %> ＞ 
-          <%= @product.name %>
+        <% end %>
+        <%= link_to @product.category.name, category_path(@product.category.id), class: "link-light" %> ＞ 
+        <%= @product.name %>
       </div>
     <% end %>
     <div class="px-3 py-2">
