@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
+
+    @related_products = Product.related_to_category(@product.category_id, @product.id)
+                        .limit(4)
   end
 
   def new
