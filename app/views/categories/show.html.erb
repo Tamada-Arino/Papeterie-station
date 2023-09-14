@@ -16,6 +16,8 @@
       </div>
     </div>
     <p class="h4 p-2"><%= @order_text %></p>
-    <%= render partial: 'shared/product_list', collection: @products, as: :product %>
+    <div class="row">
+      <%= render partial: 'shared/product_list', collection: @products, as: :product %>
+    </div>
   </div>
 </div>
