@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_q, only: [:index, :search]
   
   def index
-    @products = Product.order(created_at: :desc)
+    @products = @q.result(distinct: true)
   end
 
   def show
