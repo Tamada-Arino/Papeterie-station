@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def show
+    @q = Product.ransack(params[:q])
     @category = Category.find(params[:id])
     all_category_ids = @category.self_and_descendants.pluck(:id)
 
