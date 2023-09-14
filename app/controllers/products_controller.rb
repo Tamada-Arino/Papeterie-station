@@ -2,9 +2,9 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :access_right_check, only: [:edit, :update, :destroy]
-  before_action :set_q, only: [:index, :search]
-  
+
   def index
+    @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
   end
 
@@ -50,17 +50,9 @@ class ProductsController < ApplicationController
     redirect_to root_path, notice: '投稿を削除しました'
   end
 
-  def search
-    @products = @q.result(distinct: true)
-  end
-
   private
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def set_q
-    @q = Product.ransack(params[:q])
   end
 
   def access_right_check

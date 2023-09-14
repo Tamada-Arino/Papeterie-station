@@ -19,10 +19,6 @@ Rails.application.routes.draw do
   end
   resources :products do
     resource :favorites, only: [:create, :destroy]
-
-    collection do
-      get 'search', to: 'products#search', as: 'search'
-    end
   end
   resources :comments, only: [:create, :destroy]
   resources :categories, only: [:show]
