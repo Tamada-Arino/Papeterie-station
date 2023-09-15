@@ -1,4 +1,8 @@
-<% provide(:title, "投稿製品一覧") %>
+<% if params[:q].blank? %>
+  <% provide(:title, "投稿製品一覧") %>
+<% else %>
+  <% provide(:title, "「#{params[:q][:name_or_description_cont]}」の検索結果") %>
+<% end %>
 <div class="d-flex justify-content-between p-3">
   <% if params[:q].blank? %>
     <h3>投稿製品一覧</h3>
