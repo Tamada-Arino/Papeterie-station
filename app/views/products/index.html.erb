@@ -1,6 +1,10 @@
 <% provide(:title, "投稿製品一覧") %>
-<div class="d-flex justify-content-between">
-  <h3>投稿製品一覧</h3>
+<div class="d-flex justify-content-between p-3">
+  <% if params[:q].blank? %>
+    <h3>投稿製品一覧</h3>
+  <% else %>
+    <h3>「<%= params[:q][:name_or_description_cont] %>」の検索結果</h3>
+  <% end %>
   <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
     <i class="bi bi-plus-circle"></i> 製品を投稿
   <% end %>
