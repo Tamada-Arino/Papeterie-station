@@ -1,7 +1,7 @@
 <% provide(:title, "投稿製品一覧") %>
-<div class="d-flex justify-content-between p-3">
-  <h3>投稿製品一覧</h3>
-  <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
+<div class="p-3 row">
+  <h3 class="col-sm-9">投稿製品一覧</h3>
+  <%= link_to new_product_path, class: "btn btn-red bg-red text-light col-sm-3 text-right" do %>
     <i class="bi bi-plus-circle"></i> 製品を投稿
   <% end %>
 </div>
