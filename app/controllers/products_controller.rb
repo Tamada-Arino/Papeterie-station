@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "投稿しました"
       redirect_to root_path
     else
+      @categories = Category.all.pluck(:name, :id)
       render :new
     end
   end
