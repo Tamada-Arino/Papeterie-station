@@ -34,6 +34,9 @@ gem 'rails-i18n'
 gem 'ransack'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'amazon-ecs'
+gem 'rakuten_web_service'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
