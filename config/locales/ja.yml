@@ -10,6 +10,7 @@ ja:
         name: 製品名
         description: 製品説明
         price: 参考価格
+        images: 画像
   devise:  
     failure:  
       deleted_account: このアカウントは削除されています。
