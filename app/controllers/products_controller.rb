@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: '投稿を変更しました'
     else
+      @categories = Category.all.pluck(:name, :id)
       render :edit
     end
   end
