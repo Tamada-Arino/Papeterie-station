@@ -1,14 +1,6 @@
-<% if params[:q].blank? %>
-  <% provide(:title, "投稿製品一覧") %>
-<% else %>
-  <% provide(:title, "「#{params[:q][:name_or_description_cont]}」の検索結果") %>
-<% end %>
+<% provide(:title, "投稿製品一覧") %>
 <div class="d-flex justify-content-between p-3">
-  <% if params[:q].blank? %>
-    <h3>投稿製品一覧</h3>
-  <% else %>
-    <h3>「<%= params[:q][:name_or_description_cont] %>」の検索結果</h3>
-  <% end %>
+  <h3>投稿製品一覧</h3>
   <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
     <i class="bi bi-plus-circle"></i> 製品を投稿
   <% end %>
@@ -33,6 +25,13 @@
   </div>
   <div class="col-lg-9 col-sm-8">
     <div class="row">
+      <div class="d-flex justify-content-between w-100 bg-paper p-2">
+        <p class="m-0">並べ替え：</p>
+        <div class="d-flex gap-2">
+          <%= sort_link(@q, :name, "名前順") %>
+          <%= sort_link(@q, :created_at, "投稿日時") %>
+        </div>
+      </div>
       <%= render partial: 'shared/product_list', collection: @products, as: :product %>
     </div>
   </div>
