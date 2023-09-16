@@ -66,9 +66,7 @@
             <%= image_tag 'noimage.png', class: "product-image d-block w-100" %>
           <% end %>
         </div>
-        <% unless @product.price.nil? %>
-          <p>参考価格：<%= @product.price.to_s(:delimited) %>円</p>
-        <% end %>
+        <p>参考価格：<%= @product.price.to_s(:delimited) %>円</p>
         <p><%= @product.description %></p>
       </div>
     </div>
@@ -87,6 +85,12 @@
     <% end %>
     <%= render partial: 'shared/comment_list', collection: @product.comments, as: :comment %>
   </div>
+  <% if @product.category_id != nil %>
+    <p class="h4">ほかの<%= @product.category.name %>カテゴリーの投稿</p>
+    <div class="row">
+      <%= render partial: 'shared/product_list', collection: @related_products, as: :product %>
+    </div>
+  <% end %>
 </div>
 <% if @product.category_id != nil %>
   <div class="mt-3">
