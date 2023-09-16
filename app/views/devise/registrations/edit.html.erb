@@ -1,6 +1,9 @@
 <h2>登録情報の編集</h2>
+<%= link_to :back do %>
+  <i class="bi bi-arrow-return-left"></i>前のページに戻る
+<% end %>
 <%= render "devise/shared/error_messages", resource: resource %>
-<div class="mx-auto p-3">
+<div class="mx-auto p-3 mt-4">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="field p-2">
       <%= f.label :email %><br />
@@ -25,8 +28,8 @@
       <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
       <%= f.password_field :current_password, class: "w-75", autocomplete: "current-password" %>
     </div>
-    <div class="actions">
-      <%= f.submit t('.update') %>
+    <div class="actions mt-4">
+      <%= f.submit t('.update'), class:"btn btn-success text-light w-75 p-2" %>
     </div>
   <% end %>
 </div>
@@ -56,4 +59,3 @@
     </div>
   </div>
 </div>
-<%= link_to t('devise.shared.links.back'), :back %>
