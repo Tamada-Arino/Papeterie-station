@@ -1,13 +1,13 @@
 <div class="top-image-wrapper">
-  <div class="top-content mx-auto">
+  <div class="top-content mx-auto my-4">
     <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo pb-4" %></h1>
     <div>
-      <h3 class="text-center">Papeterie Stationとは？</h3>
+      <h3 class="text-center mb-3">Papeterie Stationとは？</h3>
       <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
       <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
     </div>
   </div>
-  <div class="mx-auto translucent-form">
+  <div class="mx-auto translucent-form my-3">
     <% unless user_signed_in? %>
       <p class="text-secondary">\ユーザー登録してお気に入り登録をしよう/</p>
       <div>
@@ -38,10 +38,12 @@
     <% end %>
   </div>
 </div>
-<div class="mx-auto p-5">
-  <p class="text-secondary">\気になるキーワードで検索してみよう/</p>
-  <div class="mx-auto">
-    <%= render "shared/search_form", url: products_path %>
+<div class="bg-paper over-wrapper p-5">
+  <div class="mx-auto translucent-form px-5 py-3">
+    <p class="text-secondary">\気になるキーワードで検索してみよう/</p>
+    <div class="mx-auto mb-2">
+      <%= render "shared/search_form", url: products_path %>
+    </div>
   </div>
 </div>
 <div class="bg-alminium over-wrapper">
