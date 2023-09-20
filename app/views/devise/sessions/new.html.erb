@@ -1,5 +1,5 @@
 <h2><%= t('.sign_in') %></h2>
-<div class="mx-auto p-3">
+<div class="mx-auto p-3 mt-4">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field p-2">
       <%= f.label :email %><br />
@@ -15,9 +15,13 @@
         <%= f.label :remember_me %>
       </div>
     <% end %>
-    <div class="actions">
-      <%= f.submit t('.sign_in') %>
+    <div class="actions mt-3">
+      <%= f.submit t('.sign_in'), class:"btn btn-red bg-red text-light w-100 p-2" %>
     </div>
   <% end %>
+  <div class="mt-5">
+    <p class="mx-auto">アカウント登録がまだの方は<%= link_to "こちら", new_user_registration_path %></p>
+    <p class="mx-auto"><%= link_to "ゲストログインでお試ししてみる", users_guest_sign_in_path, class: "btn btn-paper bg-paper" %></p>
+  </div>
 </div>
-<%= render "devise/shared/links" %>
+

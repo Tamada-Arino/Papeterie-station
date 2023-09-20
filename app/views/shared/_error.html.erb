@@ -1,7 +1,9 @@
 <% if obj.errors.any? %>
-  <ul>
-    <% obj.errors.full_messages.each do |message| %>
-      <li class="text-danger"><%= message %></li>
-    <% end %>
-  </ul>
+  <div class="mx-auto border border-danger rounded-3">
+    <ul class="py-3 px-5 m-0">
+      <% obj.errors.full_messages.each do |message| %>
+        <li class="text-danger"><i class="bi bi-exclamation-triangle"></i><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

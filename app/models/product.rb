@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   FILE_NUMBER_LIMIT = 3
-  
+
   belongs_to :user
   belongs_to :category, optional: true
   has_many_attached :images
@@ -13,6 +13,14 @@ class Product < ApplicationRecord
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "description", "created_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["category"]
   end
 
   scope :related_to_category, ->(category_id, current_product_id) do

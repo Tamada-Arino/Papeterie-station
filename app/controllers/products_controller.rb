@@ -2,17 +2,17 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :access_right_check, only: [:edit, :update, :destroy]
-  
+
   def index
-    @products = Product.order(created_at: :desc)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def show
     @comment = Comment.new
 
-    if @product.category_id != nil
-      @related_products = Product.related_to_category(@product.category_id, @product.id).limit(4)
-    end
+    @related_products = Product.related_to_category(@product.category_id, @product.id)
+                        .limit(4)
   end
 
   def new
@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "投稿しました"
       redirect_to root_path
     else
+      @categories = Category.all.pluck(:name, :id)
       render :new
     end
   end
@@ -44,6 +45,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: '投稿を変更しました'
     else
+      @categories = Category.all.pluck(:name, :id)
       render :edit
     end
   end

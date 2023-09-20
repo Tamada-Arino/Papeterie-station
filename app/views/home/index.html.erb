@@ -1,13 +1,13 @@
 <div class="top-image-wrapper">
-  <div class="top-content mx-auto">
+  <div class="top-content mx-auto my-4">
     <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo pb-4" %></h1>
     <div>
-      <h3 class="text-center">Papeterie Stationとは？</h3>
+      <h3 class="text-center mb-3">Papeterie Stationとは？</h3>
       <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
       <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
     </div>
   </div>
-  <div class="mx-auto translucent-form">
+  <div class="mx-auto translucent-form my-3">
     <% unless user_signed_in? %>
       <p class="text-secondary">\ユーザー登録してお気に入り登録をしよう/</p>
       <div>
@@ -31,24 +31,49 @@
             <i class="bi bi-plus-circle"></i> 製品を投稿
           <% end %>
         </div>
-        <div class="d-flex gap-1 mx-auto">
-          <div>
-            <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
-          </div>
-          <div>
-            <%= link_to "チェック履歴", user_path(current_user.id, tab: 'histories') %>
-          </div>
+        <div class="mx-auto">
+          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-<div class="bg-alminium over-wrapper">
-  <div class="d-flex justify-content-between">
-    <h3>新着投稿</h3>
-    <%= link_to"もっと見る", products_path, class: "btn btn-red bg-red text-light" %>
+<div class="bg-paper over-wrapper p-5">
+  <div class="mx-auto translucent-form px-5 py-3">
+    <p class="text-secondary">\気になるキーワードで検索してみよう/</p>
+    <div class="mx-auto mb-2">
+      <%= render "shared/search_form", url: products_path %>
+    </div>
   </div>
-  <div class="row">
-    <%= render partial: 'shared/product_list', collection: @products, as: :product %>
+</div>
+<div class="bg-alminium over-wrapper">
+  <div class="mx-auto">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button type="button" class="nav-link active" id="pills-new-tab" data-bs-toggle="pill" data-bs-target="#pills-new" role="tab" aria-controls="pills-new" aria-selected="true">
+          新着投稿
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button type="button" class="nav-link" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" role="tab" aria-controls="pills-popular" aria-selected="false">
+          人気の投稿
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content container" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab" tabindex="0">
+      <div class="row">
+        <%= render partial: 'shared/product_list', collection: @new_products, as: :product %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab" tabindex="0">
+      <div class="row">
+        <%= render partial: 'shared/product_list', collection: @popular_products, as: :product %>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto mt-2">
+    <%= link_to"もっと見る！", products_path, class: "btn btn-red bg-red text-light px-5 py-3" %>
   </div>
 </div>
