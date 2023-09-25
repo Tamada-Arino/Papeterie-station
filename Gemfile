@@ -37,6 +37,7 @@ gem 'bootstrap'
 gem 'amazon-ecs'
 gem 'rakuten_web_service'
 gem 'dotenv-rails'
+gem 'awesome_nested_set'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rubocop-airbnb'
   gem 'annotate'
-  gem 'awesome_nested_set'
 end
 
 group :development do
