@@ -1,6 +1,6 @@
 <%= search_form_for @q, url: url, method: :get do |f| %>
   <div class="input-group">
-    <%= f.search_field :name_or_description_cont, placeholder: 'キーワードを入力', class: 'form-control' %>
+    <%= f.search_field :name_or_description_cont, placeholder: 'キーワードを', class: 'form-control' %>
     <div class="input-group-append">
       <%= f.submit '検索', class: 'btn btn-red bg-red text-light' %>
     </div>
