@@ -1,25 +1,16 @@
-<div class="accordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button bg-alminium" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        カテゴリーから探す
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
-        <ul class="p-0">
-          <% Category.roots.each do |root_category| %>
-            <li>
-              <%= link_to root_category.name, category_path(root_category.id), class: "text-dark" %>
-              <ul>
-                <% root_category.leaves.each do |category| %>
-                  <li><%= link_to category.name, category_path(category.id), class: "text-dark" %></li>
-                <% end %>
-              </ul>
-            </li>
+<input id="block-01" type="checkbox" class="toggle" checked>
+<label class="Label bg-alminium mt-3" for="block-01">カテゴリーから探す</label>
+<div class="content">
+  <ul class="p-0">
+    <% Category.roots.each do |root_category| %>
+      <li>
+        <%= link_to root_category.name, category_path(root_category.id), class: "text-dark" %>
+        <ul>
+          <% root_category.leaves.each do |category| %>
+            <li><%= link_to category.name, category_path(category.id), class: "text-dark" %></li>
           <% end %>
         </ul>
-      </div>
-    </div>
-  </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
