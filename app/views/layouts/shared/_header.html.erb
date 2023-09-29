@@ -1,4 +1,4 @@
-<header class="d-flex justify-content-between px-3 pt-1 bg-paper">
+<header class="header d-flex justify-content-between pt-1 bg-paper">
   <div class="h3">
     <%= link_to root_path, class: "text-light text-decoration-none" do %>
       <%= image_tag "banner_logo.png", class: "banner-logo" %>
@@ -7,27 +7,26 @@
   <div class="align-self-center">
     <% if user_signed_in? %>
       <div class="dropdown">
-        <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn bg-alminium btn-outline-alminium">
           <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'default_avatar.png', class: "avatar-small" %>
-          <%= current_user.name %>
+          <%= current_user.name %> <i class="bi bi-caret-down-fill"></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item" %></li>
-          <li><%= link_to "製品を投稿", new_product_path, class: "dropdown-item" %></li>
-          <li><%= link_to "登録情報編集", edit_user_registration_path, class: "dropdown-item" %></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+        <ul class="dropdown-content">
+          <li><%= link_to "マイページ", user_path(current_user.id), class: "link-dark"  %></li>
+          <li><%= link_to "製品を投稿", new_product_path, class: "link-dark"  %></li>
+          <li><%= link_to "登録情報編集", edit_user_registration_path, class: "link-dark"  %></li>
+          <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
         </ul>
       </div>
     <% else %>
       <div class="dropdown">
-        <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          アカウント
+        <button class="btn bg-alminium btn-outline-alminium">
+          アカウント <i class="bi bi-caret-down-fill"></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><%= link_to"新規登録", new_user_registration_path, class: "dropdown-item" %></li>
-          <li><%= link_to"ログイン", new_user_session_path, class: "dropdown-item" %></li>
-          <li><%= link_to"ゲストログイン", users_guest_sign_in_path, class: "dropdown-item" %></li>
+        <ul class="dropdown-content">
+          <li><%= link_to"新規登録", new_user_registration_path, class: "link-dark" %></li>
+          <li><%= link_to"ログイン", new_user_session_path, class: "link-dark" %></li>
+          <li><%= link_to"ゲストログイン", users_guest_sign_in_path, class: "link-dark" %></li>
         </ul>
       </div>
     <% end %>
