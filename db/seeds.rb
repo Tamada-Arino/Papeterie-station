@@ -161,35 +161,35 @@ products_data = [
     description: "シンプルで美しいガラスペンです。安心感のある太い軸、持ち運べるコンパクトな長さが特徴で、持ち運びやすいです。",
     category_id: 7,
     user_id: 5
-  }
+  },
   {
     name: "クラルテ 20穴",
     price: 763,
     description: "落ち着いた色味のキレイめバインダー。見た目だけでなく機能性も備えた表紙、充実した本文内容で勉強が捗ります。",
     category_id: 9,
     user_id: 6
-  }
+  },
   {
     name: "ほぼ日手帳 weeks",
     price: 2200,
     description: "weeksは、長財布と同じくらいの大きさで、スーツやカバンのポケットにもらくらく入ります。デザインやカバーが充実していて、きっとお気に入りが見つかります。",
     category_id: 10,
     user_id: 3
-  }
+  },
   {
     name: "ココフセンページ",
     price: 594,
     description: "しおりみたいに挟んで持てる&1枚ずつ引き出せるポップアップ式ケースで、読書や学習などの場面で少ない動作ですばやくふせんを使えます。",
     category_id: 11,
     user_id: 6
-  }
+  },
   {
     name: "旅する野帳",
     price: 790,
     description: "旅の計画作りをかわいくサポート、旅する野帳シリーズのしおり用ふせん。野帳(旅する野帳)に貼るのに、ちょうど良いサイズのふせんです。",
     category_id: 11,
     user_id: 6
-  }
+  },
   {
     name: "ブックバンドペンケース リサイクルレザー",
     price: 1980,
@@ -209,7 +209,7 @@ favorites_data = [
   { user_id: 2, product_id: [1, 4, 14] },
   { user_id: 3, product_id: [4, 11] },
   { user_id: 4, product_id: [4, 3, 17] },
-  { user_id: 5, product_id: [1, 2, 13, 14] }
+  { user_id: 5, product_id: [1, 2, 13, 14] },
   { user_id: 6, product_id: [3, 5, 14] }
 ]
 
@@ -256,12 +256,12 @@ comments_data = [
     content: "飽きのこない美しさです。実はインク持ちがいいのでハガキ一枚ぶんはインク付け直さなくてもいいんですよ。",
     user_id: 5,
     product_id: 14
-  }
+  },
   {
     content: "こんなものがあったんですね！すごく気になります",
     user_id: 3,
     product_id: 16
-  }
+  },
   {
     content: "これ、よさそうですね！手帳が充実しそうです！",
     user_id: 3,
@@ -283,7 +283,7 @@ follow_data = [
   { follower_id: 2, followed_id: [1, 5] },
   { follower_id: 3, followed_id: [1, 4, 6] },
   { follower_id: 4, followed_id: [2, 3, 6] },
-  { follower_id: 5, followed_id: [1, 3, 4] }
+  { follower_id: 5, followed_id: [1, 3, 4] },
   { follower_id: 6, followed_id: [1, 2, 5] }
 ]
 
