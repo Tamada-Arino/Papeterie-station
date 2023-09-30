@@ -55,6 +55,7 @@ users = [
   {name: 'Carol', email: 'user3@example.com', password: 'passw@rd'},
   {name: 'Dave', email: 'user4@example.com', password: 'passw@rd'},
   {name: 'Ellen', email: 'user5@example.com', password: 'passw@rd'},
+  {name: 'Frank', email: 'user6@example.com', password: 'passw@rd'},
 ]
 
 users.each do |record|
@@ -161,6 +162,41 @@ products_data = [
     category_id: 7,
     user_id: 5
   }
+  {
+    name: "クラルテ 20穴",
+    price: 763,
+    description: "落ち着いた色味のキレイめバインダー。見た目だけでなく機能性も備えた表紙、充実した本文内容で勉強が捗ります。",
+    category_id: 9,
+    user_id: 6
+  }
+  {
+    name: "ほぼ日手帳 weeks",
+    price: 2200,
+    description: "weeksは、長財布と同じくらいの大きさで、スーツやカバンのポケットにもらくらく入ります。デザインやカバーが充実していて、きっとお気に入りが見つかります。",
+    category_id: 10,
+    user_id: 3
+  }
+  {
+    name: "ココフセンページ",
+    price: 594,
+    description: "しおりみたいに挟んで持てる&1枚ずつ引き出せるポップアップ式ケースで、読書や学習などの場面で少ない動作ですばやくふせんを使えます。",
+    category_id: 11,
+    user_id: 6
+  }
+  {
+    name: "旅する野帳",
+    price: 790,
+    description: "旅の計画作りをかわいくサポート、旅する野帳シリーズのしおり用ふせん。野帳(旅する野帳)に貼るのに、ちょうど良いサイズのふせんです。",
+    category_id: 11,
+    user_id: 6
+  }
+  {
+    name: "ブックバンドペンケース リサイクルレザー",
+    price: 1980,
+    description: "スリムな見た目で、太軸のペンが最大4本持ち歩けるブックバンドペンケースです。長さ調節できるアジャスター付きゴムバンドなのでB6～A5サイズの手帳やノートに対応できます。",
+    category_id: 13,
+    user_id: 6
+  }
 ]
 
 products_data.each do |data|
@@ -169,11 +205,12 @@ end
 
 # いいねの設定
 favorites_data = [
-  { user_id: 1, product_id: [3, 6, 14] },
-  { user_id: 2, product_id: [1, 4] },
+  { user_id: 1, product_id: [3, 4, 6, 14, 17] },
+  { user_id: 2, product_id: [1, 4, 14] },
   { user_id: 3, product_id: [4, 11] },
-  { user_id: 4, product_id: [4, 3] },
-  { user_id: 5, product_id: [1, 2, 13] }
+  { user_id: 4, product_id: [4, 3, 17] },
+  { user_id: 5, product_id: [1, 2, 13, 14] }
+  { user_id: 6, product_id: [3, 5, 14] }
 ]
 
 favorites_data.each do |data|
@@ -183,8 +220,18 @@ favorites_data.each do |data|
   end
 end
 
-#コメントの設定
+# コメントの設定
 comments_data = [
+  {
+    content: "キャップのいらない万年筆があるんだね。無くす心配がないしかっこいいね",
+    user_id: 2,
+    product_id: 1
+  },
+  {
+    content: "デザインがかっこいい！値段も手頃だし、ガンガン使えそう！",
+    user_id: 5,
+    product_id: 2
+  },
   {
     content: "これは不思議なデザインだね。",
     user_id: 2,
@@ -210,6 +257,16 @@ comments_data = [
     user_id: 5,
     product_id: 14
   }
+  {
+    content: "こんなものがあったんですね！すごく気になります",
+    user_id: 3,
+    product_id: 16
+  }
+  {
+    content: "これ、よさそうですね！手帳が充実しそうです！",
+    user_id: 3,
+    product_id: 18
+  }
 ]
 
 comments_data.each do |comment_data|
@@ -224,9 +281,10 @@ end
 follow_data = [
   { follower_id: 1, followed_id: [2, 3, 4] },
   { follower_id: 2, followed_id: [1, 5] },
-  { follower_id: 3, followed_id: [1, 4] },
-  { follower_id: 4, followed_id: [2, 3] },
+  { follower_id: 3, followed_id: [1, 4, 6] },
+  { follower_id: 4, followed_id: [2, 3, 6] },
   { follower_id: 5, followed_id: [1, 3, 4] }
+  { follower_id: 6, followed_id: [1, 2, 5] }
 ]
 
 follow_data.each do |data|
