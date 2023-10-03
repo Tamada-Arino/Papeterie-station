@@ -17,7 +17,7 @@
     </div>
     <div class="p-2">
       <%= f.label :images, "画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><em>３枚まで添付できます</em><br>
-      <%= f.file_field :images, multiple: true %>
+      <%= f.file_field :images, multiple: true, class: "custom-file-input" %>
     </div>
     <div class="p-2">
       <%= f.label :category_id, "カテゴリー" %> <span class="small bg-alminium text-light rounded p-1">任意</span>

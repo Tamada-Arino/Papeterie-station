@@ -18,7 +18,7 @@
     </div>
     <div class="field p-2">
       <%= f.label :avatar, "プロフィール画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br />
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar, class: "custom-file-input" %>
     </div>
     <div class="actions p-2">
       <%= f.submit"更新", class: "btn btn-success w-100" %>
