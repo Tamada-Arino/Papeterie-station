@@ -1,10 +1,12 @@
 <% provide(:title, "プロフィール編集") %>
-<h3>プロフィール編集</h3>
-<%= link_to :back do %>
-  <i class="bi bi-arrow-return-left"></i>前のページに戻る
-<% end %>
+<h2>
+  <%= link_to :back, class: "text-decoration-none" do %>
+    <i class="bi bi-arrow-left-circle text-secondary"></i>
+  <% end %>
+  プロフィール編集
+</h2>
 <%= render "shared/error", obj: current_user %>
-<div class="mx-auto">
+<div class="mx-auto p-3 mt-4 shadow rounded">
   <%= form_with model: current_user, url: users_profile_path do |f| %>
     <div class="field p-2">
       <%= f.label :name, "名前" %> <span class="small bg-red text-light rounded p-1">必須</span><br />
