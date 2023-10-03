@@ -21,13 +21,13 @@
       </div>
     <% else %>
       <div class="dropdown">
-        <button class="btn bg-alminium btn-outline-alminium">
-          アカウント <i class="bi bi-caret-down-fill"></i>
+        <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          アカウント
         </button>
-        <ul class="dropdown-content">
-          <li><%= link_to"新規登録", new_user_registration_path, class: "link-dark" %></li>
-          <li><%= link_to"ログイン", new_user_session_path, class: "link-dark" %></li>
-          <li><%= link_to"ゲストログイン", users_guest_sign_in_path, class: "link-dark" %></li>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to"新規登録", new_user_registration_path, class: "dropdown-item" %></li>
+          <li><%= link_to"ログイン", new_user_session_path, class: "dropdown-item" %></li>
+          <li><%= link_to"ゲストログイン", users_guest_sign_in_path, class: "dropdown-item" %></li>
         </ul>
       </div>
     <% end %>
