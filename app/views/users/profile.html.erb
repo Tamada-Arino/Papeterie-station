@@ -10,11 +10,11 @@
   <%= form_with model: current_user, url: users_profile_path do |f| %>
     <div class="field p-2">
       <%= f.label :name, "名前" %> <span class="small bg-red text-light rounded p-1">必須</span><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"w-100" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"w-100", :placeholder => "50文字以内" %>
     </div>
     <div class="field p-2">
     <%= f.label :introduction, "プロフィール" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br />
-    <%= f.text_area :introduction, autofocus: true, rows: 3, class:"w-100" %>
+    <%= f.text_area :introduction, autofocus: true, rows: 3, class:"w-100", :placeholder => "200文字以内" %>
     </div>
     <div class="field p-2">
       <%= f.label :avatar, "プロフィール画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br />
