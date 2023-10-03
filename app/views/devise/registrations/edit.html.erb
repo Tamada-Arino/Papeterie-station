@@ -36,14 +36,11 @@
     </div>
   <% end %>
 </div>
-<div class="p-3 mt-5">
-  <h3><%= t('.cancel_my_account') %></h3>
-  <div>
-    <%= t('.unhappy') %>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
-      <%= t('.cancel_my_account') %>
-    </button>
-  </div>
+<div class="mx-auto p-3 mt-5 bg-dark text-white shadow rounded">
+  お気に召しませんでしたか？
+  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+    <%= t('.cancel_my_account') %>
+  </button>
 </div>
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
   <div class="modal-dialog">
