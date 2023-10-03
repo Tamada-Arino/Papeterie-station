@@ -3,17 +3,28 @@ a {
 }
 .page-logo {
     width: 40vw;
-    min-width: 400px;
+    min-width: 250px;
 }
 .banner-logo {
-    width: 200px;
+    width: 150px;
 }
 .body {
     color: #333;
 }
 ul {
     list-style: none;
-  }
+}
+.notice-alert {
+    border-radius: 15px;
+    min-width: 40vw;
+}
+
+// header
+.header {
+    padding: 0 4%;
+}
+
+// トップページ
 .page-content {
     min-height: 90vh;
     height: fit-content;
@@ -27,6 +38,7 @@ ul {
 }
 .top-image-wrapper {
     background-image: image-url('top-image.jpg');
+    background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
     height: fit-content;
@@ -34,12 +46,35 @@ ul {
     width: 100vw;
     position: relative;
     padding: 30px;
+    z-index: 1;
+}
+.top-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+    radial-gradient(rgba(255, 255, 255, 0.6) 30%, rgba(0, 0, 0, 0) 31%),
+    radial-gradient(rgba(255, 255, 255, 0.6) 30%, rgba(0, 0, 0, 0) 31%);
+    background-size: 6px 6px;
+    background-position: 0 0, 3px 3px;
+    z-index: -1;
 }
 .translucent-form {
     background-color:rgba(255,255,255,0.7);
     padding: 10px 20px;
     border-radius: 10px;
 }
+.over-wrapper {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+    position: relative;
+    padding: 30px;
+}
+
+// 画像表示
 .avatar-small {
 	width: 30px;
 	height: 30px;
@@ -72,16 +107,8 @@ ul {
     height: 100px;
 	object-fit: contain;
 }
-.over-wrapper {
-    margin: 0 calc(50% - 50vw);
-    width: 100vw;
-    position: relative;
-    padding: 30px;
-}
-.notice-alert {
-    border-radius: 15px;
-    min-width: 40vw;
-}
+
+// 製品一覧
 .favorite {
     border: none;
     background: transparent;
@@ -96,3 +123,8 @@ ul {
     right: 7px;
     font-size: 2rem;
 }
+
+
+.custom-file-input {
+    width: 100%;
+  }

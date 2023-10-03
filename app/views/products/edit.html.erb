@@ -1,43 +1,50 @@
 <% provide(:title, "#{@product.name}の編集") %>
-<h3>投稿の編集</h3>
+<h3>
+  <%= link_to product_path(@product.id), class: "text-decoration-none" do %>
+    <i class="bi bi-arrow-left-circle text-secondary"></i>
+  <% end %>
+  投稿の編集
+</h3>
 <%= render "shared/error", obj: @product %>
-<%= form_with model: @product do |f| %>
-  <div class="p-2">
-    <%= f.label :name, "製品名" %><br>
-    <%= f.text_field :name, :placeholder => "製品名を入力" %>
-  </div>
-  <div class="p-2">
-    <%= f.label :description, "製品説明" %><br>
-    <%= f.text_area :description, class: "w-100", :placeholder => "説明を入力" %>
-  </div>
-  <div class="p-2">
-    <%= f.label :price, "参考価格" %><br>
-    <%= f.text_field :price, :placeholder => "参考価格" %>
-  </div>
-  <div class="p-2">
-    <%= f.label :category_id, "カテゴリー" %>
-    <%= f.select :category_id, options_for_select(@categories), include_blank: "選択して下さい" %>
-  </div>
-  <div class="p-2">
-    <%= f.label :images, "画像" %><br>
-    <%= f.file_field :images, multiple: true %>
-  </div>
-  <% if @product.images.present? %>
+<div class="mx-auto p-3 my-4 shadow rounded">
+  <%= form_with model: @product do |f| %>
     <div class="p-2">
-      現在登録されている画像（削除するものはチェックしてください）<br>
-      <% @product.images.each do |image| %>
-        <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
-        <%= image_tag image, size:"100x100" %> <br>
-      <% end %>
+      <%= f.label :name, "製品名" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+      <%= f.text_field :name, class: "w-100", :placeholder => "製品名を入力" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :price, "参考価格" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+      <%= f.text_field :price, class: "w-100", :placeholder => "参考価格" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :description, "製品説明" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br>
+      <%= f.text_area :description, class: "w-100", rows: 3, :placeholder => "説明を入力" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :category_id, "カテゴリー" %> <span class="small bg-alminium text-light rounded p-1">任意</span>
+      <%= f.select :category_id, options_for_select(@categories), include_blank: "選択して下さい" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :images, "画像" %><br>
+      <%= f.file_field :images, multiple: true, class: "custom-file-input" %>
+    </div>
+    <% if @product.images.present? %>
+      <div class="p-2">
+        現在登録されている画像（削除するものはチェックしてください）<br>
+        <% @product.images.each do |image| %>
+          <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+          <%= image_tag image, size:"100x100" %> <br>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="p-2">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "編集を完了する", class: "btn btn-success w-100 p-2" %>
     </div>
   <% end %>
-  <div class="p-2">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "編集を完了する", class: "btn btn-success" %>
-  </div>
-<% end %>
-<div class="mt-5">
-  <p>この投稿を削除しますか？
+</div>
+<div class="mx-auto p-3 mt-5 bg-dark text-white shadow rounded">
+  <p class="m-2">この投稿を削除しますか？
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
       投稿を削除
     </button>

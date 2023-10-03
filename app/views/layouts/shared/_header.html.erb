@@ -1,4 +1,4 @@
-<header class="d-flex justify-content-between px-3 pt-1 bg-paper">
+<header class="header d-flex justify-content-between pt-1 bg-paper">
   <div class="h3">
     <%= link_to root_path, class: "text-light text-decoration-none" do %>
       <%= image_tag "banner_logo.png", class: "banner-logo" %>
@@ -20,17 +20,16 @@
         </ul>
       </div>
     <% else %>
-      <ul class="d-flex gap-1">
-        <li>
-          <%= link_to"新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
-        </li>
-        <li>
-          <%= link_to"ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
-        </li>
-        <li>
-          <%= link_to"ゲストログイン", users_guest_sign_in_path, class: "btn btn-light" %>
-        </li>
-      </ul>
+      <div class="dropdown">
+        <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          アカウント
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to"新規登録", new_user_registration_path, class: "dropdown-item" %></li>
+          <li><%= link_to"ログイン", new_user_session_path, class: "dropdown-item" %></li>
+          <li><%= link_to"ゲストログイン", users_guest_sign_in_path, class: "dropdown-item" %></li>
+        </ul>
+      </div>
     <% end %>
   </div>
 </header>

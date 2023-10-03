@@ -92,11 +92,3 @@
     </div>
   <% end %>
 </div>
-<% if @product.category_id != nil %>
-  <div class="mt-3">
-    <p class="h4"><%= @product.category.name %>のそのほかの製品</p>
-    <div class="row">
-      <%= render partial: 'shared/product_list', collection: @related_products, as: :product %>
-    </div>
-  </div>
-<% end %>

@@ -1,7 +1,7 @@
 <% provide(:title, @category.name) %>
 <div class="p-3 row">
-  <h3 class="col-sm-7">カテゴリー:<%= @category.name %>から探す</h3>
-  <div class="col-sm-5 d-flex justify-content-end gap-2">
+  <h3 class="col-md-8">カテゴリー:<%= @category.name %>から探す</h3>
+  <div class="col-md-4 d-flex justify-content-end gap-2">
     <%= link_to products_path, class: "btn btn-alminium bg-alminium" do %>
       製品一覧へ
     <% end %>
@@ -12,20 +12,7 @@
 </div>
 <div class="row">
   <div class="col-lg-3 col-sm-4">
-    <div class="accordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="Open-headingOne">
-          <button class="accordion-button bg-alminium" type="button" data-bs-toggle="collapse" data-bs-target="#Open-collapseOne" aria-expanded="true" aria-controls="Open-collapseOne">
-          キーワードで探す
-          </button>
-        </h2>
-        <div id="Open-collapseOne" class="accordion-collapse collapse show" aria-labelledby="Open-headingOne">
-          <div class="accordion-body">
-            <%= render "shared/search_form", url: category_path(@category)  %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/search_form", url: category_path(@category)  %>
     <%= render "shared/category_list" %>
   </div>
   <div class="col-lg-9 col-sm-8">

@@ -1,6 +1,6 @@
 <h2><%= t('.sign_up') %></h2>
 <%= render "devise/shared/error_messages", resource: resource %>
-<div class="mx-auto p-3 mt-4">
+<div class="mx-auto p-3 mt-4 shadow rounded">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="field p-2">
       <%= f.label :name %> <span class="small bg-red text-light rounded p-1">必須</span><br />
@@ -21,16 +21,12 @@
       <%= f.label :password_confirmation %> <span class="small bg-red text-light rounded p-1">必須</span><br />
       <%= f.password_field :password_confirmation, class: "w-100", autocomplete: "new-password" %>
     </div>
-    <div class="field p-2">
-      <%= f.label :avatar, "プロフィール画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br />
-      <%= f.file_field :avatar %>
-    </div>
     <div class="actions mt-3">
       <%= f.submit t('.sign_up'), class:"btn btn-red bg-red text-light w-100 p-2" %>
     </div>
   <% end %>
   <div class="mt-5">
-    <p class="mx-auto">すでにアカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %></p>
+    <p class="mx-auto">アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %></p>
     <p class="mx-auto"><%= link_to "ゲストログインでお試ししてみる", users_guest_sign_in_path, class: "btn btn-paper bg-paper" %></p>
   </div>
 </div>

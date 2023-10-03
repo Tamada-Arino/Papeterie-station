@@ -1,10 +1,11 @@
 <div class="top-image-wrapper">
   <div class="top-content mx-auto my-4">
     <h1 class="mx-auto"><%= image_tag "logo_transparent.png", class: "page-logo pb-4" %></h1>
-    <div>
+    <div class="mx-auto">
       <h3 class="text-center mb-3">Papeterie Stationとは？</h3>
       <p class="text-center">見て、使うことで心躍る文房具-Papeterie-のシェアステーション。</p>
-      <p class="text-center">あなたのお気に入りの一品を見つけて。</p>
+      <p class="text-center">あなたのお気に入りを発信しよう。</p>
+      <p class="text-center">あなたのお気に入りの一品を見つけよう。</p>
     </div>
   </div>
   <div class="mx-auto translucent-form my-3">
@@ -31,8 +32,8 @@
             <i class="bi bi-plus-circle"></i> 製品を投稿
           <% end %>
         </div>
-        <div class="mx-auto">
-          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
+        <div class="mx-auto mt-2">
+          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites'), class: "btn btn-paper bg-paper" %>
         </div>
       </div>
     <% end %>
@@ -50,14 +51,14 @@
   <div class="mx-auto">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link active" id="pills-new-tab" data-bs-toggle="pill" data-bs-target="#pills-new" role="tab" aria-controls="pills-new" aria-selected="true">
-          新着投稿
-        </button>
+        <%= link_to '#pills-new', class: 'm-2 btn active', 'data-bs-toggle': 'pill', 'data-bs-target': '#pills-new', role: 'tab', 'aria-controls': 'pills-new', 'aria-selected': 'true' do %>
+          <p class="h5 m-0 p-2"><i class="bi bi-stars"></i> 新着投稿</p>
+        <% end %>
       </li>
       <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" role="tab" aria-controls="pills-popular" aria-selected="false">
-          人気の投稿
-        </button>
+        <%= link_to '#pills-popular', class: 'm-2 btn', 'data-bs-toggle': 'pill', 'data-bs-target': '#pills-popular', role: 'tab', 'aria-controls': 'pills-popular', 'aria-selected': 'false' do %>
+          <p class="h5 m-0 p-2"><i class="bi bi-stars"></i> 人気投稿</p>
+        <% end %>
       </li>
     </ul>
   </div>
@@ -75,5 +76,11 @@
   </div>
   <div class="mx-auto mt-2">
     <%= link_to"もっと見る！", products_path, class: "btn btn-red bg-red text-light px-5 py-3" %>
+  </div>
+</div>
+<div class="over-wrapper bg-ink">
+  <div class="container mx-auto translucent-form">
+    <h4 class="text-center"><i class="bi bi-stars"></i> 新着ユーザー</h4>
+    <%= render partial: 'shared/user_list', collection: @new_users, as: :user %>
   </div>
 </div>

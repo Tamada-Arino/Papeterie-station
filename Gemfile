@@ -6,7 +6,7 @@ ruby '2.7.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -37,9 +37,11 @@ gem 'bootstrap'
 gem 'amazon-ecs'
 gem 'rakuten_web_service'
 gem 'dotenv-rails'
+gem 'awesome_nested_set'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
@@ -47,7 +49,6 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rubocop-airbnb'
   gem 'annotate'
-  gem 'awesome_nested_set'
 end
 
 group :development do
@@ -71,3 +72,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg'
+end

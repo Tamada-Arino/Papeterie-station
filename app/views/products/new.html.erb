@@ -1,7 +1,7 @@
 <% provide(:title, "新規投稿") %>
 <h3>製品投稿</h3>
 <%= render "shared/error", obj: @product %>
-<div class="mx-auto">
+<div class="mx-auto p-3 mt-4 shadow rounded">
   <%= form_with model: @product do |f| %>
     <div class="p-2">
       <%= f.label :name, "製品名" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
@@ -17,7 +17,7 @@
     </div>
     <div class="p-2">
       <%= f.label :images, "画像" %> <span class="small bg-alminium text-light rounded p-1">任意</span><em>３枚まで添付できます</em><br>
-      <%= f.file_field :images, multiple: true %>
+      <%= f.file_field :images, multiple: true, class: "custom-file-input" %>
     </div>
     <div class="p-2">
       <%= f.label :category_id, "カテゴリー" %> <span class="small bg-alminium text-light rounded p-1">任意</span>
