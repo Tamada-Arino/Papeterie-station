@@ -32,8 +32,8 @@
             <i class="bi bi-plus-circle"></i> 製品を投稿
           <% end %>
         </div>
-        <div class="mx-auto">
-          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites') %>
+        <div class="mx-auto mt-2">
+          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites'), class: "btn btn-paper bg-paper" %>
         </div>
       </div>
     <% end %>
@@ -51,14 +51,14 @@
   <div class="mx-auto">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link active" id="pills-new-tab" data-bs-toggle="pill" data-bs-target="#pills-new" role="tab" aria-controls="pills-new" aria-selected="true">
-          新着投稿
-        </button>
+        <%= link_to '#pills-new', class: 'm-2 btn active', 'data-bs-toggle': 'pill', 'data-bs-target': '#pills-new', role: 'tab', 'aria-controls': 'pills-new', 'aria-selected': 'true' do %>
+          <p class="h5 m-0 p-2"><i class="bi bi-stars"></i> 新着投稿</p>
+        <% end %>
       </li>
       <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" role="tab" aria-controls="pills-popular" aria-selected="false">
-          人気の投稿
-        </button>
+        <%= link_to '#pills-popular', class: 'm-2 btn', 'data-bs-toggle': 'pill', 'data-bs-target': '#pills-popular', role: 'tab', 'aria-controls': 'pills-popular', 'aria-selected': 'false' do %>
+          <p class="h5 m-0 p-2"><i class="bi bi-stars"></i> 人気投稿</p>
+        <% end %>
       </li>
     </ul>
   </div>
