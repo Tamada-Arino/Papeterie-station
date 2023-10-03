@@ -78,3 +78,9 @@
     <%= link_to"もっと見る！", products_path, class: "btn btn-red bg-red text-light px-5 py-3" %>
   </div>
 </div>
+<div class="over-wrapper bg-ink">
+  <div class="container mx-auto translucent-form">
+    <h4 class="text-center"><i class="bi bi-stars"></i> 新着ユーザー</h4>
+    <%= render partial: 'shared/user_list', collection: @new_users, as: :user %>
+  </div>
+</div>
