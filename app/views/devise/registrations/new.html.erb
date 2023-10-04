@@ -25,6 +25,11 @@
       <%= f.submit t('.sign_up'), class:"btn btn-red bg-red text-light w-100 p-2" %>
     </div>
   <% end %>
+  <div>
+    <%- if devise_mapping.omniauthable? %>
+      <%= button_to 'Sign in with Google', user_google_oauth2_omniauth_authorize_path %>
+    <% end %>
+  </div>
   <div class="mt-5">
     <p class="mx-auto">アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %></p>
     <p class="mx-auto"><%= link_to "ゲストログインでお試ししてみる", users_guest_sign_in_path, class: "btn btn-paper bg-paper" %></p>
