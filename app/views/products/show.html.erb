@@ -72,8 +72,8 @@
     </div>
   </div>
   <div class="col-md-4 bg-alminium">
-    <h4>コメント欄</h4>
     <%= form_with(model: [@comment], url: comments_path, method: :post) do |f| %>
+      <%= f.label :content, "コメント", class: "h4" %>
       <div class="mb-3">
         <%= f.text_area :content, placeholder: "コメントを入力", class: "w-100", rows: 3 %>
         <%= f.hidden_field :product_id, value: @product.id %>
