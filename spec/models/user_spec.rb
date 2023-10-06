@@ -12,6 +12,16 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
     end
 
+    it '50文字の名前は登録できること' do
+      user = build(:user, name: 'a' * 50)
+      expect(user).to be_valid
+    end
+
+    it '51文字以上の名前は登録できないこと' do
+      user = build(:user, name: 'a' * 51)
+      expect(user).not_to be_valid
+    end
+
     it "emailがなければ登録できないこと" do
       user = build(:user, email: "")
       expect(user).not_to be_valid
