@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Relationships", type: :system do
-  describe "ユーザー詳細ページ" do
+  describe "フォロー機能" do
     let(:user) { create(:user) }
     let(:another_user) { create(:user, email: "another@email.com") }
 
