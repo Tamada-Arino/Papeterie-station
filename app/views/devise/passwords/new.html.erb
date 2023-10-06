@@ -1,16 +1,20 @@
 <h2><%= t('.forgot_your_password') %></h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="mx-auto p-3 mt-4 shadow rounded">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field p-2">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: "w-100", autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="actions p-2">
+      <%= f.submit t('.send_me_reset_password_instructions'), class: "btn btn-success" %>
+    </div>
+  <% end %>
+  <div class="mt-5">
+    <p class="mx-auto"><%= link_to "ゲストログインでお試ししてみる", users_guest_sign_in_path, class: "btn btn-paper bg-paper" %></p>
+    <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+      <%= image_tag "btn_google_signin_light_normal_web.png", class: "d-block mx-auto" %>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
