@@ -3,6 +3,7 @@ class Relationship < ApplicationRecord
   belongs_to :followed, class_name: "User"
 
   validate :cannot_follow_yourself
+  validates_uniqueness_of :follower, scope: :followed
 
   private
 
