@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  describe 'ユーザー登録' do
+  describe "ユーザー登録" do
     it "name、email、passwordとpassword_confirmationが存在すれば登録できること" do
       user = build(:user)
       expect(user).to be_valid
@@ -35,6 +35,20 @@ RSpec.describe User, type: :model do
     it "passwordとpassword_confirmationが6文字未満だと登録できないこと" do
       user = build(:user, password: "11111", password_confirmation: "11111")
       expect(user).not_to be_valid
+    end
+
+    context "一意性の確認" do
+      before do
+        @user = build(:user)
+      end
+
+      it "emailがすでに登録されていると登録できないこと" do
+        @user.save
+
+        another_user = build(:user)
+        another_user.valid?
+        expect(another_user.errors[:email]).to include("はすでに存在します")
+      end
     end
   end
 end
