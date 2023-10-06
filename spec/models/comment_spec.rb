@@ -17,7 +17,7 @@ RSpec.describe Comment, type: :model do
       expect(comment).to be_valid
     end
 
-    it '151文字を超えるコメントは投稿できないこと' do
+    it '151文字以上のコメントは投稿できないこと' do
       comment = build(:comment, content: 'a' * 151)
       expect(comment).not_to be_valid
     end
