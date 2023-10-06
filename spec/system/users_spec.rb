@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content(user.introduction)
     end
 
-    it "プロフィール編集ページへのリンクがないこと" do
+    it "プロフィール編集ページへのリンクがあること" do
       expect(page).to have_content("編集")
     end
 
