@@ -1,15 +1,17 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ApplicationHelper. For example:
-#
-# describe ApplicationHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ApplicationHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "ページタイトル" do
+    it "渡した文字列を含んだページタイトルになっていること" do
+      expect(full_title("test")).to eq("test - Papeterie Station")
+    end
+
+    it "引数がnilのときにPapeterie Stationになること" do
+      expect(full_title(nil)).to eq("Papeterie Station")
+    end
+
+    it "引数に何も設定されてないときPapeterie Stationになること" do
+      expect(full_title("")).to eq("Papeterie Station")
+    end
+  end
 end
