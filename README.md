@@ -11,6 +11,10 @@ https://papeterie-station-7e4731a83553.herokuapp.com/
 * Ruby 2.7.8
 * Ruby on Rails 6.1.7
 * PostgreSQL
+* RSpec
+* AWS(S3)
+* Omniauth
+* 楽天商品検索API
 
 ## ER図
 ![Papeterie_station ER 図 (カラスの足記法)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/58402393-6394-4f5b-9a63-1079a0b57cfe)
@@ -31,6 +35,10 @@ https://papeterie-station-7e4731a83553.herokuapp.com/
 
 - 製品投稿機能
 <img width="791" alt="スクリーンショット 2023-10-04 3 55 41" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/a4470b96-352d-4181-8052-5ff59e756957">
+
+- 検索機能（楽天）
+<img width="1337" alt="スクリーンショット 2023-10-11 1 00 25" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/28343e20-299c-4860-a3e4-1438a5640d34">
+投稿の詳細ページから、その製品名で検索して出てくる商品ページに遷移できるようになっています。
 
 - いいね機能
 投稿詳細ページからいいねができます。
