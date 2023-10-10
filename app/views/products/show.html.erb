@@ -93,6 +93,8 @@
   <% end %>
   <div>
     <p class="h4">楽天市場の<%= @product.name %>検索結果</p>
-    <%= render 'shared/rakuten_items' %>
+    <div class="row">
+      <%= render partial: 'shared/rakuten_items', collection: @items.first(8), as: :item %>
+    </div>
   </div>
 </div>

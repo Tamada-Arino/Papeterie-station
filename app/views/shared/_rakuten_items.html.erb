@@ -1,9 +1,11 @@
-<% @items.first(5).each do |item| %>
-  <div class="list-group">
-    <%= link_to "#{item.url}" do %>
-      <%= image_tag (item['smallImageUrls'][0]) %>
-      <%= item.name %>
-      <%= number_with_delimiter(item.price) %>円
-    <% end %>
-  </div>
-<% end %>
+<div class="p-0 mb-2 col-lg-3 col-6 col-xs-3">
+  <%= link_to "#{item.url}", class: "text-decoration-none" do %>
+    <div class="p-1 m-1 rounded h-100 text-ink bg-alminium">
+      <div>
+        <%= image_tag (item['smallImageUrls'][0]), class: "rounded" %>
+        <%= item.name.truncate(50) %>
+      </div>
+      <p class="m-0 float-end h5">価格: <%= number_with_delimiter(item.price) %>円</p>
+    </div>
+  <% end %>
+</div>
