@@ -22,7 +22,7 @@
     </div>
     <div class="p-2">
       <%= f.label :category_id, "カテゴリー" %> <span class="small bg-alminium text-light rounded p-1">任意</span>
-      <%= f.select :category_id, options_for_select(@categories), include_blank: "選択して下さい" %>
+      <%= f.select :category_id, options_for_select(@categories, @product.category_id), include_blank: "選択して下さい" %>
     </div>
     <div class="p-2">
       <%= f.label :images, "画像" %><br>
