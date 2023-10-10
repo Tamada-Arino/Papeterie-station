@@ -94,7 +94,7 @@
     </div>
   <% end %>
   <div class="mt-3">
-    <p class="h4">楽天市場の<%= @product.name %>検索結果</p>
+    <p class="h4">楽天市場の「<%= @product.name %>」検索結果</p>
     <div class="row">
       <%= render partial: 'shared/rakuten_items', collection: @items, as: :item %>
     </div>
