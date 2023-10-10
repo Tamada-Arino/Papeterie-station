@@ -38,6 +38,7 @@ gem 'amazon-ecs'
 gem 'rakuten_web_service'
 gem 'dotenv-rails'
 gem 'awesome_nested_set'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
