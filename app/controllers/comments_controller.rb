@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       flash[:alert] = "コメントが投稿できませんでした"
       redirect_back(fallback_location: root_path)
     end
-  end  
+  end
 
   def destroy
     Comment.find(params[:id]).destroy
@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:user_id, :product_id, :content)
   end

@@ -15,22 +15,22 @@ RSpec.describe "Comments", type: :system do
         expect(current_path).to eq new_user_session_path
       end
     end
-    
+
     context "ログイン時" do
       before do
         sign_in user
         fill_in 'コメント', with: 'comment'
         click_button 'コメントを投稿'
       end
-    
+
       it "コメントが投稿できること" do
         expect(page).to have_content('comment')
       end
-    
+
       it "コメント削除ボタンがあること" do
         expect(page).to have_button('削除')
       end
-    
+
       it "コメント削除ボタンを押すとコメントが削除できること" do
         click_button '削除'
         expect(page).to have_content('コメントを削除しました')

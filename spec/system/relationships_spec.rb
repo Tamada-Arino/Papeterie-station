@@ -17,7 +17,7 @@ RSpec.describe "Relationships", type: :system do
       it "フォローボタンを押すとログインページに遷移すること" do
         click_button 'フォローする'
         expect(current_path).to eq new_user_session_path
-      end  
+      end
     end
 
     context "ログイン時" do

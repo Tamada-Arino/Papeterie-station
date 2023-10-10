@@ -30,6 +30,7 @@ class Product < ApplicationRecord
   end
 
   private
+
   def validate_number_of_files
     return if images.length <= FILE_NUMBER_LIMIT
     errors.add(:images, "に添付できる画像は#{FILE_NUMBER_LIMIT}枚までです。")

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable, omniauth_providers: %i(google_oauth2)
 
   has_one_attached :avatar
 
@@ -24,7 +24,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.introduction = auth.info.introduction
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
     end
   end
 
@@ -35,15 +35,15 @@ class User < ApplicationRecord
     end
   end
 
-  def soft_delete  
-    update_attribute(:deleted_at, Time.current)  
-  end  
+  def soft_delete
+    update_attribute(:deleted_at, Time.current)
+  end
 
-  def active_for_authentication?  
-    super && !deleted_at  
-  end  
+  def active_for_authentication?
+    super && !deleted_at
+  end
 
-  def inactive_message   
-    !deleted_at ? super : :deleted_account  
-  end  
+  def inactive_message
+    !deleted_at ? super : :deleted_account
+  end
 end

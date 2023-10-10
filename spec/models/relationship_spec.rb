@@ -22,17 +22,17 @@ RSpec.describe Relationship, type: :model do
       relationship = build(:relationship, follower: user, followed: user)
       expect(relationship).not_to be_valid
     end
-    
+
     context '一意性の確認' do
       before do
         @follower = create(:user)
         @followed = create(:user, email: "test2@gmail.com")
         @relationship = build(:relationship, follower: @follower, followed: @followed)
       end
-    
+
       it 'フォローする人とフォローされる人が同じレコードが登録されないこと' do
         @relationship.save
-    
+
         another_relationship = build(:relationship, follower: @follower, followed: @followed)
         expect(another_relationship).not_to be_valid
       end

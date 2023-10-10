@@ -4,7 +4,9 @@ RSpec.describe "Products", type: :system do
   describe "製品詳細ページ" do
     let(:category) { create(:category) }
     let(:product) { create(:product, category_id: category.id) }
-    let(:related_products) { create_list(:product, 4, user_id: product.user.id, category_id: category.id) }
+    let(:related_products) do
+      create_list(:product, 4, user_id: product.user.id, category_id: category.id)
+    end
 
     before do
       visit product_path(product.id)

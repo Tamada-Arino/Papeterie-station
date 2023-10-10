@@ -36,7 +36,7 @@ RSpec.describe "Homes", type: :system do
         expect(page).to have_content('ゲストユーザーとしてログインしました。')
       end
     end
-  
+
     context "ログイン時" do
       before do
         sign_in user

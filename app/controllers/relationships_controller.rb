@@ -8,6 +8,6 @@ class RelationshipsController < ApplicationController
 
   def destroy
     current_user.followers.find_by(followed_id: params[:user_id]).destroy
-    redirect_to request.referer  
+    redirect_to request.referer
   end
 end
