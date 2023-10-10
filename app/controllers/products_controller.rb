@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @items = RakutenWebService::Ichiba::Item.search(keyword: @product.name)
+    @items = RakutenWebService::Ichiba::Item.search(keyword: @product.name).first(8)
     @related_products = Product.related_to_category(@product.category_id, @product.id)
                         .limit(4)
   end
