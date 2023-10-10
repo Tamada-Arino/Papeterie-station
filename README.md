@@ -18,6 +18,7 @@ https://papeterie-station-7e4731a83553.herokuapp.com/
 ## 機能一覧
 - ユーザー登録、ログイン機能（devise）
 ゲストログイン機能も実装しています。
+また、googleアカウントを利用してのサインアップおよびログインにも対応しています。
 
 * 検索機能（ransack）
 <img width="1234" alt="スクリーンショット 2023-10-04 4 06 47" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/cb26ffdb-afe2-4476-94c8-deebacbe740f">
