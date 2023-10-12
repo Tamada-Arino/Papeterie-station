@@ -1,0 +1,27 @@
+<div class="accordion mt-2">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button bg-alminium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        詳細検索
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion">
+      <div class="accordion-body">
+        <%= search_form_for @q, url: url, method: :get do |f| %>
+            <i class="bi bi-search"></i><%= f.label :name_or_description_cont, "キーワード" %>
+            <%= f.search_field :name_or_description_cont, placeholder: 'キーワード検索', class: 'form-control w-100' %>
+            <div class="my-2">
+              <i class="bi bi-search"></i><%= f.label :price_gteq, "価格帯" %>
+              <div class="d-flex justify-content-between">
+                <%= f.number_field :price_gteq, placeholder: '¥ Min', class: 'form-control w-50' %>
+                <%= f.number_field :price_lteq, placeholder: '¥ Max', class: 'form-control w-50' %>
+              </div>
+            </div>
+            <div>
+              <%= f.submit '検索', class: 'btn btn-red bg-red text-light w-100 my-2' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

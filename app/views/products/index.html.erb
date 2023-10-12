@@ -7,7 +7,7 @@
 </div>
 <div class="row">
   <div class="col-lg-3 col-sm-4">
-    <%= render "shared/search_form", url: products_path %>
+    <%= render "shared/detail_search", url: products_path %>
     <%= render "shared/category_list" %>
   </div>
   <div class="col-lg-9 col-sm-8">
@@ -16,6 +16,7 @@
         <p class="m-0">並べ替え：</p>
         <div class="d-flex gap-2">
           <%= sort_link(@q, :name, "名前順") %>
+          <%= sort_link(@q, :price, "価格順") %>
           <%= sort_link(@q, :created_at, "投稿日時") %>
         </div>
       </div>
