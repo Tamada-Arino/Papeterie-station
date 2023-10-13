@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const priceMax = document.querySelector('#price_max');
 
   priceMin.addEventListener('input', function() {
-    const min = parseInt(priceMin.value, 10);
-    const max = parseInt(priceMax.value, 10);
+    const min = parseInt(priceMin.value);
+    const max = parseInt(priceMax.value);
 
     if (min > max) {
       priceMax.value = min;
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   priceMax.addEventListener('input', function() {
-    const min = parseInt(priceMin.value, 10);
-    const max = parseInt(priceMax.value, 10);
+    const min = parseInt(priceMin.value);
+    const max = parseInt(priceMax.value);
 
     if (max < min) {
       priceMin.value = max;
