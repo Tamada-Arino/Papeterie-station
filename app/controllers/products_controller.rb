@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   before_action :access_right_check, only: [:edit, :update, :destroy]
 
   def index
-    @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
   end
 
