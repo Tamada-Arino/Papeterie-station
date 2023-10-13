@@ -41,6 +41,7 @@ gem 'awesome_nested_set'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'aws-sdk-s3', require: false
+gem 'active_storage_validations'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
