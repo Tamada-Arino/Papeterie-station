@@ -1,10 +1,13 @@
-<header class="header d-flex justify-content-between pt-1 bg-paper">
+<header class="header d-flex justify-content-between pt-1 bg-paper sticky-top">
   <div class="h3">
     <%= link_to root_path, class: "text-light text-decoration-none" do %>
       <%= image_tag "banner_logo.png", class: "banner-logo" %>
     <% end %>
   </div>
-  <div class="align-self-center">
+  <div class="d-flex justify-content-between gap-3">
+    <div class="d-none d-md-block">
+      <%= render "shared/search_form", url: products_path %>
+    </div>
     <% if user_signed_in? %>
       <div class="dropdown">
         <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -20,7 +23,14 @@
         </ul>
       </div>
     <% else %>
-      <div class="dropdown">
+      <div class="d-none d-lg-block">
+        <div class="d-flex gap-1 mx-auto">
+          <%= link_to "ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-light" %>
+        </div>
+      </div>
+      <div class="dropdown d-lg-none">
         <button class="btn bg-alminium btn-outline-alminium dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           アカウント
         </button>
