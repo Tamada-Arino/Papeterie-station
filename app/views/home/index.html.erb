@@ -77,6 +77,16 @@
     <%= link_to"もっと見る！", products_path, class: "btn btn-red bg-red text-light px-5 py-3" %>
   </div>
 </div>
+<% if user_signed_in? && @follower_products.count > 0 %>
+  <div class="over-wrapper bg-paper">
+    <h4 class="text-center"><i class="bi bi-stars"></i> フォローした人の新着投稿</h4>
+    <div class="container">
+      <div class="row">
+        <%= render partial: 'shared/product_list', collection: @follower_products, as: :product %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <div class="over-wrapper bg-ink">
   <div class="container mx-auto translucent-form">
     <h4 class="text-center"><i class="bi bi-stars"></i> 新着ユーザー</h4>
