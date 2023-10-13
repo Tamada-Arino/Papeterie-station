@@ -25,13 +25,13 @@ https://papeterie-station-7e4731a83553.herokuapp.com/
 また、googleアカウントを利用してのサインアップおよびログインにも対応しています。
 
 * 検索機能（ransack）
-<img width="1234" alt="スクリーンショット 2023-10-04 4 06 47" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/cb26ffdb-afe2-4476-94c8-deebacbe740f">
-キーワード検索で、製品名と説明文を対象に検索できます。
+<img width="1593" alt="スクリーンショット 2023-10-13 20 31 53" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/cd4d675f-e590-41d9-875e-7820a923e5fe">
+キーワード検索で製品名と説明文、価格帯を対象に検索できます。製品名と価格、投稿日時によるソート機能も実装しています。
 
 - カテゴリー機能（awesome_nested_set）
-<img width="1233" alt="スクリーンショット 2023-10-04 4 02 00" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/ffc3322a-fadb-4cde-8af5-0865cb28d43b">
+<img width="1584" alt="スクリーンショット 2023-10-13 20 34 52" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/19220653-0a67-41bb-ac41-31e6bc3e4032">
 大カテゴリーと小カテゴリーを設定しており、大カテゴリーで探すとその子孫の小カテゴリーに属する製品も一覧で確認できます。
-また、カテゴリーページでキーワード検索するとそのカテゴリー内で検索ができます。
+また、カテゴリーページでキーワードや価格帯で検索するとそのカテゴリー内で検索ができます。
 
 - 製品投稿機能
 <img width="791" alt="スクリーンショット 2023-10-04 3 55 41" src="https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/a4470b96-352d-4181-8052-5ff59e756957">
