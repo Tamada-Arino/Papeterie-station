@@ -22,6 +22,16 @@ RSpec.describe Product, type: :model do
       expect(product).not_to be_valid
     end
 
+    it "priceが0であれば登録できないこと" do
+      product = build(:product, price: 0)
+      expect(product).not_to be_valid
+    end
+
+    it "priceが整数でなければ登録できないこと" do
+      product = build(:product, price: 1.1)
+      expect(product).not_to be_valid
+    end
+
     it "descriptionがなくても登録できること" do
       product = build(:product, description: "")
       expect(product).to be_valid
