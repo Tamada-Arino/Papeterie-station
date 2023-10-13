@@ -8,16 +8,20 @@
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
         <ul class="p-0">
-          <% Category.roots.each do |root_category| %>
-            <li>
-              <%= link_to root_category.name, category_path(root_category.id), class: "text-dark" %>
-              <ul>
-                <% root_category.leaves.each do |category| %>
-                  <li><%= link_to category.name, category_path(category.id), class: "text-dark" %></li>
-                <% end %>
-              </ul>
-            </li>
-          <% end %>
+          <li><%= link_to "全製品", products_path, class: "text-dark" %>
+            <ul>
+              <% Category.roots.each do |root_category| %>
+                <li>
+                  <%= link_to root_category.name, category_path(root_category.id), class: "text-dark" %>
+                  <ul>
+                    <% root_category.leaves.each do |category| %>
+                      <li><%= link_to category.name, category_path(category.id), class: "text-dark" %></li>
+                    <% end %>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
