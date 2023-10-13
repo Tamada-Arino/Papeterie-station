@@ -17,6 +17,11 @@ RSpec.describe Product, type: :model do
       expect(product).not_to be_valid
     end
 
+    it "priceが負の数字であれば登録できないこと" do
+      product = build(:product, price: -1)
+      expect(product).not_to be_valid
+    end
+
     it "descriptionがなくても登録できること" do
       product = build(:product, description: "")
       expect(product).to be_valid
