@@ -22,7 +22,6 @@
         <div class="d-flex gap-2">
           <%= sort_link(@q, :name, "名前順") %>
           <%= sort_link(@q, :price, "価格順") %>
-          <%= sort_link(@q, :created_at, "投稿日時") %>
         </div>
       </div>
       <%= render partial: 'shared/product_list', collection: @products, as: :product %>
