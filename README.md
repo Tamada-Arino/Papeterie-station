@@ -17,7 +17,7 @@ https://papeterie-station-7e4731a83553.herokuapp.com/
 * 楽天商品検索API
 
 ## ER図
-![Papeterie_station ER 図 (カラスの足記法)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/58402393-6394-4f5b-9a63-1079a0b57cfe)
+![Papeterie_station ER 図 (カラスの足記法)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/64c764e2-45fa-4751-b6df-118211ef38ac)
 
 ## 機能一覧
 - ユーザー登録、ログイン機能（devise）
