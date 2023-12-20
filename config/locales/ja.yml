@@ -12,6 +12,10 @@ ja:
         description: 製品説明
         price: 参考価格
         images: 画像
+      inquiry:
+        name: お名前
+        address: メールアドレス
+        text: お問い合わせ内容
   devise:  
     failure:  
       deleted_account: このアカウントは削除されています。
