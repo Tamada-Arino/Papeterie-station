@@ -1,0 +1,22 @@
+<% provide(:title, "お問い合わせ") %>
+<h3>お問い合わせ内容</h3>
+<%= render "shared/error", obj: @inquiry %>
+<div class="mx-auto p-3 mt-4 shadow rounded">
+  <%= form_with model: @inquiry, url: confirm_inquiries_path(@inquiry), local: true do |f| %>
+    <div class="p-2">
+      <%= f.label :name, "お名前" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+      <%= f.text_field :name, :placeholder => "お名前", class: "w-100" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :address, "メールアドレス" %> <span class="small bg-alminium text-light rounded p-1">任意</span><br>
+      <%= f.text_field :address, :placeholder => "メールアドレス", class: "w-100" %>
+    </div>
+    <div class="p-2">
+      <%= f.label :text, "お問い合わせ内容" %> <span class="small bg-red text-light rounded p-1">必須</span><br>
+      <%= f.text_area :text, :placeholder => "お問い合わせ内容", rows: 3, class: "w-100" %>
+    </div>
+    <div class="p-2">
+      <%= f.submit "投稿する", class: "btn btn-success w-100 p-2" %>
+    </div>
+  <% end %>
+</div>
