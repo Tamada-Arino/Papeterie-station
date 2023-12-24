@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:create, :destroy]
   resources :categories, only: [:show]
+  resources :inquiries, only: [:new, :create] do
+    collection do
+      post :confirm
+    end
+  end
 end

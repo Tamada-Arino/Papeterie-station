@@ -1,0 +1,29 @@
+<% provide(:title, "お問い合わせ内容の確認") %>
+<div class="mx-auto p-3 mt-4 shadow rounded">
+  <p>この内容で送信してもよろしいですか？</p>
+  <div class="p-2">
+    <p>
+      <span class="fw-bold">お名前</span><br>  
+      <%= @inquiry.name %>
+    </p>
+  </div>
+  <div class="p-2">
+    <p>
+      <span class="fw-bold">メールアドレス</span><br>  
+      <%= @inquiry.address %>
+    </p>
+  </div>
+  <div class="p-2">
+    <p>
+      <span class="fw-bold">お問い合わせ内容</span><br>  
+      <%= @inquiry.text %>
+    </p>
+  </div>
+  <%= form_with model: @inquiry, local: true do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :address %>
+    <%= f.hidden_field :text %>
+    <%= f.submit "問い合わせ内容を送信する", class: "btn btn-success w-100 p-2" %>
+    <%= link_to "戻る", 'javascript:history.back()', class: "btn btn-secondary w-100 p-2 mt-2" %>
+  <% end %>
+</div>
