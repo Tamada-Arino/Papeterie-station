@@ -3,7 +3,7 @@ class InquiryMailer < ApplicationMailer
     @inquiry = inquiry
     mail(
       from: "system@#{ENV['MAILGUN_DOMAIN']}",
-      to: ENV['GMAIL_USERNAME'],
+      to: ENV['GMAIL_ADDRESS'],
       subject: 'お問い合わせ通知'
     )
   end
