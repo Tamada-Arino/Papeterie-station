@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Comment, type: :model do
   describe "ユーザー登録" do
@@ -12,13 +12,13 @@ RSpec.describe Comment, type: :model do
       expect(comment).not_to be_valid
     end
 
-    it '150文字のコメントは投稿できること' do
-      comment = build(:comment, content: 'a' * 150)
+    it "150文字のコメントは投稿できること" do
+      comment = build(:comment, content: "a" * 150)
       expect(comment).to be_valid
     end
 
-    it '151文字以上のコメントは投稿できないこと' do
-      comment = build(:comment, content: 'a' * 151)
+    it "151文字以上のコメントは投稿できないこと" do
+      comment = build(:comment, content: "a" * 151)
       expect(comment).not_to be_valid
     end
 

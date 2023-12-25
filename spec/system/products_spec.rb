@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Products", type: :system do
   describe "製品詳細ページ" do
@@ -42,23 +42,23 @@ RSpec.describe "Products", type: :system do
 
     it "製品情報を更新できること" do
       visit edit_product_path(product.id)
-      fill_in '製品名', with: 'new_name'
-      fill_in '参考価格', with: 2
-      click_button '編集を完了する'
-      expect(page).to have_content('投稿を変更しました')
+      fill_in "製品名", with: "new_name"
+      fill_in "参考価格", with: 2
+      click_button "編集を完了する"
+      expect(page).to have_content("投稿を変更しました")
     end
 
     it "製品情報を削除できること" do
       visit edit_product_path(product.id)
-      click_button '投稿を削除'
-      click_button '削除する'
-      expect(page).to have_content('投稿を削除しました')
+      click_button "投稿を削除"
+      click_button "削除する"
+      expect(page).to have_content("投稿を削除しました")
     end
 
     it "製品情報を登録したしたユーザー以外が製品情報の編集ページにアクセスできないこと" do
       sign_in another_user
       visit edit_product_path(product.id)
-      expect(page).to have_content('アクセス権がありません')
+      expect(page).to have_content("アクセス権がありません")
     end
   end
 end

@@ -10,7 +10,7 @@
   <div class="mx-auto translucent-form my-3">
     <% unless user_signed_in? %>
       <p class="text-secondary">\ユーザー登録してお気に入りを見つけよう/</p>
-      <div>
+      <div class="btn-contain">
         <div class="d-flex gap-1 mx-auto">
           <div>
             <%= link_to "新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>

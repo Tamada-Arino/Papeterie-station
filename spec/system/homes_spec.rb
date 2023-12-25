@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Homes", type: :system do
   describe "トップページ" do
@@ -10,30 +10,42 @@ RSpec.describe "Homes", type: :system do
       end
 
       it "ログインへのリンクがあること" do
-        expect(page).to have_content('ログイン')
+        within(".btn-contain") do
+          expect(page).to have_content("ログイン")
+        end
       end
 
       it "ログインへのリンクをクリックするとログインページへ遷移できること" do
-        click_link 'ログイン'
+        within(".btn-contain") do
+          click_link "ログイン"
+        end
         expect(current_path).to eq new_user_session_path
       end
 
       it "アカウント新規登録へのリンクがあること" do
-        expect(page).to have_content('新規登録')
+        within(".btn-contain") do
+          expect(page).to have_content("新規登録")
+        end
       end
 
       it "アカウント新規登録へのリンクをクリックすると新規登録ページへ遷移できること" do
-        click_link '新規登録'
+        within(".btn-contain") do
+          click_link "新規登録"
+        end
         expect(current_path).to eq new_user_registration_path
       end
 
       it "ゲストログインへのリンクがあること" do
-        expect(page).to have_content('ゲストログイン')
+        within(".btn-contain") do
+          expect(page).to have_content("ゲストログイン")
+        end
       end
 
       it "ゲストログインへのリンクを押すとゲストログインできること" do
-        click_link 'ゲストログイン'
-        expect(page).to have_content('ゲストユーザーとしてログインしました。')
+        within(".btn-contain") do
+          click_link "ゲストログイン"
+        end
+        expect(page).to have_content("ゲストユーザーとしてログインしました。")
       end
     end
 
@@ -44,9 +56,9 @@ RSpec.describe "Homes", type: :system do
       end
 
       it "ログイン、新規登録、ゲストログインのリンクがないこと" do
-        expect(page).to have_no_content('ログイン')
-        expect(page).to have_no_content('新規登録')
-        expect(page).to have_no_content('ゲストログイン')
+        expect(page).to have_no_content("ログイン")
+        expect(page).to have_no_content("新規登録")
+        expect(page).to have_no_content("ゲストログイン")
       end
     end
   end
