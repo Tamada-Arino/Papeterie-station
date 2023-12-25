@@ -22,8 +22,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "投稿しました"
-      redirect_to @product
+      redirect_to @product, notice: "投稿しました"
     else
       @categories = Category.all.pluck(:name, :id)
       render :new
@@ -42,7 +41,7 @@ class ProductsController < ApplicationController
       end
     end
     if @product.update(product_params)
-      redirect_to @product, notice: '投稿を変更しました'
+      redirect_to @product, notice: "投稿を変更しました"
     else
       @categories = Category.all.pluck(:name, :id)
       render :edit
@@ -51,7 +50,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path, notice: '投稿を削除しました'
+    redirect_to root_path, notice: "投稿を削除しました"
   end
 
   private
@@ -62,7 +61,7 @@ class ProductsController < ApplicationController
 
   def access_right_check
     if @product.user_id != current_user.id
-      redirect_to root_path, alert: 'アクセス権がありません'
+      redirect_to root_path, alert: "アクセス権がありません"
     end
   end
 
