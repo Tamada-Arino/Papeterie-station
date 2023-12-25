@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Inquiry, type: :model do
   describe "問い合わせ内容送信" do

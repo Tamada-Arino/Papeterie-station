@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Users", type: :system do
   describe "ユーザー詳細ページ" do
@@ -36,33 +36,33 @@ RSpec.describe "Users", type: :system do
       visit edit_user_registration_path
     end
 
-    it 'メールアドレスを変更できること' do
-      fill_in 'Eメール', with: 'new_email@example.com'
-      fill_in '現在のパスワード', with: user.password
-      click_button '更新'
-      expect(page).to have_content('アカウント情報を変更しました。')
+    it "メールアドレスを変更できること" do
+      fill_in "Eメール", with: "new_email@example.com"
+      fill_in "現在のパスワード", with: user.password
+      click_button "更新"
+      expect(page).to have_content("アカウント情報を変更しました。")
     end
 
-    it 'パスワードを変更できること' do
-      fill_in 'パスワード', with: 'new_password'
-      fill_in 'パスワード（確認用）', with: 'new_password'
-      fill_in '現在のパスワード', with: user.password
-      click_button '更新'
-      expect(page).to have_content('アカウント情報を変更しました。')
+    it "パスワードを変更できること" do
+      fill_in "パスワード", with: "new_password"
+      fill_in "パスワード（確認用）", with: "new_password"
+      fill_in "現在のパスワード", with: user.password
+      click_button "更新"
+      expect(page).to have_content("アカウント情報を変更しました。")
     end
 
-    it 'アカウントを削除できること' do
-      click_button 'アカウント削除'
-      click_button '削除する'
-      expect(page).to have_content('アカウントを削除しました。またのご利用をお待ちしております。')
+    it "アカウントを削除できること" do
+      click_button "アカウント削除"
+      click_button "削除する"
+      expect(page).to have_content("アカウントを削除しました。またのご利用をお待ちしております。")
     end
 
-    it '名前とプロフィールを変更できること' do
+    it "名前とプロフィールを変更できること" do
       visit users_profile_path
-      fill_in '名前', with: 'new_name'
-      fill_in 'プロフィール', with: 'new_profile'
-      click_button '更新'
-      expect(page).to have_content('プロフィールが更新されました。')
+      fill_in "名前", with: "new_name"
+      fill_in "プロフィール", with: "new_profile"
+      click_button "更新"
+      expect(page).to have_content("プロフィールが更新されました。")
     end
   end
 end

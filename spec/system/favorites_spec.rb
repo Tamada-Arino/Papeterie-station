@@ -33,7 +33,7 @@ RSpec.describe "Favorites", type: :system do
       it "いいね済みでいいねをもう一度押すといいねが消えること" do
         find(".favorite.text-secondary").click
         find(".favorite.text-red").click
-        expect(page).to have_css('.favorite.text-secondary')
+        expect(page).to have_css(".favorite.text-secondary")
       end
     end
   end
