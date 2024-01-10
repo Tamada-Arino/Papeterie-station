@@ -40,6 +40,19 @@ RSpec.describe "Relationships", type: :system do
         click_button "フォローする"
         expect(page).to have_button("フォローを解除")
       end
+
+      it "他の人のページのフォローボタンを押すとフォローボタンがなくなること" do
+        visit user_path(another_user.id)
+        click_button "フォローする"
+        expect(page).to have_no_button("フォローする")
+      end
+
+      it "フォロー解除ボタンを押すとフォローが解除されること" do
+        visit user_path(another_user.id)
+        click_button "フォローする"
+        click_button "フォローを解除"
+        expect(page).to have_button("フォローする")
+      end
     end
   end
 end

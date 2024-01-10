@@ -48,6 +48,18 @@ RSpec.describe "Products", type: :system do
       expect(page).to have_content("投稿を変更しました")
     end
 
+    it "製品情報の更新が反映されていること" do
+      visit edit_product_path(product.id)
+      fill_in "製品名", with: "new_name"
+      fill_in "参考価格", with: 2
+      click_button "編集を完了する"
+      within '.product-info' do
+        expect(page).to have_content("new_name")
+        expect(page).to have_content("2")
+      end
+    end
+    
+
     it "製品情報を削除できること" do
       visit edit_product_path(product.id)
       click_button "投稿を削除"
