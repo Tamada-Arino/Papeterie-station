@@ -8,9 +8,11 @@
     </div>
   </div>
   <div class="mx-auto translucent-form my-3">
-    <p class="text-secondary">\好きな文房具をシェアしよう/</p>
+    <p class="text-secondary mx-auto">\好きな文房具をシェアしよう/</p>
     <% unless user_signed_in? %>
-      <%= link_to "ユーザー登録して投稿する", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
+      <%= link_to new_user_registration_path, class: "btn bg-red btn-red text-light" do %>
+        <i class="bi bi-person-add h4"></i> ユーザー登録して投稿する
+      <% end %>
     <% else %>
       <div class="mx-auto">
         <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
