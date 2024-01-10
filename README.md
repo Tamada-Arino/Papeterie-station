@@ -50,6 +50,10 @@ Papeterie Station（パペトゥリーステーション）はユーザー同士
 
   ![Papeterie_station ER 図 (カラスの足記法) (3) (1)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/c09ae6d5-e071-4078-81b0-b68857bd5db4)
 
+## インフラ構成図
+
+　　　　![名称未設定 drawio](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/c34c657f-082b-4304-b9f8-39140942ef3e)
+
 ## 機能一覧
 
   * ユーザー認証機能(devise)
