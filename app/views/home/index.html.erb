@@ -8,32 +8,17 @@
     </div>
   </div>
   <div class="mx-auto translucent-form my-3">
+    <p class="text-secondary">\好きな文房具をシェアしよう/</p>
     <% unless user_signed_in? %>
-      <p class="text-secondary">\ユーザー登録してお気に入りを見つけよう/</p>
-      <div class="btn-contain">
-        <div class="d-flex gap-1 mx-auto">
-          <div>
-            <%= link_to "新規登録", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
-          </div>
-          <div>
-            <%= link_to "ログイン", new_user_session_path, class: "btn bg-alminium btn-outline-alminium" %>
-          </div>
-        </div>
-        <div class="mx-auto">
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-paper bg-paper" %>
-        </div>
-      </div>
+      <%= link_to "ユーザー登録して投稿する", new_user_registration_path, class: "btn bg-red btn-red text-light" %>
     <% else %>
-      <p class="text-secondary">\お気に入り製品をシェアしよう/</p>
-      <div>
-        <div class="mx-auto">
-          <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
-            <i class="bi bi-plus-circle"></i> 製品を投稿
-          <% end %>
-        </div>
-        <div class="mx-auto mt-2">
-          <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites'), class: "btn btn-paper bg-paper" %>
-        </div>
+      <div class="mx-auto">
+        <%= link_to new_product_path, class: "btn btn-red bg-red text-light" do %>
+          <i class="bi bi-plus-circle"></i> 製品を投稿
+        <% end %>
+      </div>
+      <div class="mx-auto mt-2">
+        <%= link_to "お気に入り一覧", user_path(current_user.id, tab: 'favorites'), class: "btn btn-paper bg-paper" %>
       </div>
     <% end %>
   </div>
