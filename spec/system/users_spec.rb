@@ -19,6 +19,11 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content("編集")
     end
 
+    it "お気に入り一覧タブをクリックするとお気に入りタブがアクティブになること" do
+      click_link "お気に入り一覧"
+      expect(page).to have_css("a.nav-link.active", text: "お気に入り一覧")
+    end
+
     context "他のユーザーとしてログイン時" do
       it "プロフィール編集ページへのリンクがないこと" do
         sign_in another_user
