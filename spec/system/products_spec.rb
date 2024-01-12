@@ -58,7 +58,6 @@ RSpec.describe "Products", type: :system do
         expect(page).to have_content("2")
       end
     end
-    
 
     it "製品情報を削除できること" do
       visit edit_product_path(product.id)
