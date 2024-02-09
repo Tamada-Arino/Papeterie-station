@@ -52,7 +52,8 @@ Papeterie Station（パペトゥリーステーション）はユーザー同士
 
 ## インフラ構成図
 
-  ![名称未設定 drawio (1)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/482761f9-31cf-4d75-9cd1-4e457f4d9cce)
+　　　　![名称未設定 drawio (2)](https://github.com/Tamada-Arino/Papeterie-station/assets/129414368/186a88c8-e5cf-42af-af87-a40c1d57fb14)
+
 
 ## 機能一覧
 
