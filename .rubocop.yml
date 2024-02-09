@@ -12,6 +12,7 @@ AllCops:
     - 'config/environments/*'
     - 'config/initializers/*'
     - 'vendor/**/*'
+  NewCops: enable
 
 Airbnb/OptArgParameters:
   Enabled: false
