@@ -2,7 +2,7 @@
 class InquiryPreview < ActionMailer::Preview
   def inquiry
     inquiry = Inquiry.new(name: "テスト", address: "test@sample.com", text: "問い合わせメッセージ")
-   
+
     InquiryMailer.send_mail(inquiry)
   end
 end

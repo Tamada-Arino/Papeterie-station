@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Inquiries", type: :system do
   describe "問い合わせページ" do
-    let(:inquiry) {create(:inquiry)}
+    let(:inquiry) { create(:inquiry) }
 
     before do
       visit new_inquiry_path

@@ -8,9 +8,11 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
-  validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  validates :price, presence: true,
+                    numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validate :validate_number_of_files
-  validates :images, content_type: {in:[:png, :jpg, :jpeg], message: "はpng, jpg, jpegいずれかの形式にして下さい"}
+  validates :images,
+content_type: { in: [:png, :jpg, :jpeg], message: "はpng, jpg, jpegいずれかの形式にして下さい" }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
