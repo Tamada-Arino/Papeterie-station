@@ -41,6 +41,7 @@ Papeterie Station（パペトゥリーステーション）はユーザー同士
   
   ### その他
   * Git
+  * Docker
   * Rubocop
   * Mailgun
   * Omniauth
